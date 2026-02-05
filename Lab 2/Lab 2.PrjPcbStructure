@@ -1,0 +1,3 @@
+Record=TopLevelDocument|FileName=Cegep-tabloid.schdot|SheetNumber=1
+Record=SheetSymbol|SourceDocument=Cegep-tabloid.schdot|Designator=MotorDrive-A|SchDesignator=MotorDrive-A|FileName=Driver.SchDoc|SheetNumber=2|SymbolType=Normal|RawFileName=Driver.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Cegep-tabloid.schdot|Designator=MotorDrive-B|SchDesignator=MotorDrive-B|FileName=Driver.SchDoc|SheetNumber=2|SymbolType=Normal|RawFileName=Driver.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
