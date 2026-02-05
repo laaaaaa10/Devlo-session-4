@@ -1,0 +1,932 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD24\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">2026-02-05</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">16:36:31</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc" class="file"><acronym title="U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc">U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">196</td></tr>
+</table>
+</td>
+</table><a name="IDR3UEQ4GUPQ2EHOG2FTDZARDLGBTGTX20PK5Q5TOUML2OH4LFZITJ"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID5YLFYKRMDPVGEF2JNTLBCZLHM4N2UEKHTLKEIHPWQ5IQHJ4LLAE">Clearance Constraint (Gap=0.15mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID2YZLJEY2OJC0FKZTDW5JRXQ1NZWKO4UZG1NLRB4IHKNHQHEDZJI">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDJBG5MALMZ3KNLXMKF1L3QJBMVDO55CI44W3BCZBTMFL2L4X40IWO">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">72</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID5FXHI4DMW1AXD4YEH10BGQUTRBYSYZFMSG44VXLWJGTYUDVP5ACD">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDL42OQJUAKUCJNICRNNGELF0JU5VKHTHJ411ICJ5RTAI4WG1VQXK">Width Constraint (Min=0.15mm) (Max=5mm) (Preferred=0.2mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID2OFSSE32KPNCOS5AJ0S0WMZDTMOHDEAK2FXOHXCP2ZVF5OK1E12B">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDGBDUZXKB5YVUPRWW4TL44XHKF0VB04TS3DWINEO35LTFBWAZ5DG">Hole Size Constraint (Min=0.2mm) (Max=5mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDCEL3LGTKKQSWJIU4GG4EDYTWBYVPTESCFYM4QEJKS04M1LC4HCC">Hole To Hole Clearance (Gap=0.3mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDU4LPHJ3VRSFQGRDN32X1IXOHZMNBD1XYFX2BOVN5FX5TDTJIKXAJ">Minimum Solder Mask Sliver (Gap=0.075mm) (All),(All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID3OB1DDEQ20LNB30GHWIPTTUHINRBQ4XC0GQE5UNDQIYKNDVKAT5C">Silk To Solder Mask (Clearance=0mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDZCJKHBG1S45YJMVY3N1JK51IZJQC5HSCWTEBQQNSOVVL51ZDFQOF">Silk to Silk (Clearance=0mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJHXVMHLZXZC1PY55YXWL1DTLRKP1JB1QV1MXZJCNMY2KEKB1XAKP">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID3LXFEP22BIVPIGDIJREILYQAWLLNVQVZW1DNBTMOFZHYHKMYXRBO">Board Clearance Constraint (Gap=0mm) (All)</a></td>
+<td class="column2">121</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID0TQT2ANIRRPSCOGQ1LCBYW2S4HO5ZCHSUEZJHGMQ3B30GVBQX44N">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">196</td>
+</tr>
+</table><br><a name="IDJBG5MALMZ3KNLXMKF1L3QJBMVDO55CI44W3BCZBTMFL2L4X40IWO"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=402.299mil|Location2.X=473.39mil|Location1.Y=1046.787mil|Location2.Y=1196.612mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=402.299mil|Location2.X=473.39mil|Location1.Y=1046.787mil|Location2.Y=1196.612mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C1-1(-24.76mm,-13.97mm) on Top Layer And Pad C2-1(-24.457mm,-11.868mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=402.299mil|Location2.X=486.284mil|Location1.Y=946.787mil|Location2.Y=1113.842mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=402.299mil|Location2.X=486.284mil|Location1.Y=946.787mil|Location2.Y=1113.842mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C1-1(-24.76mm,-13.97mm) on Top Layer And Pad C3-1(-24.13mm,-16.51mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=477.103mil|Location2.X=548.193mil|Location1.Y=1046.787mil|Location2.Y=1196.612mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=477.103mil|Location2.X=548.193mil|Location1.Y=1046.787mil|Location2.Y=1196.612mil|Absolute=True">Un-Routed Net Constraint: Net VM Between Pad C1-2(-22.86mm,-13.97mm) on Top Layer And Pad C2-2(-22.558mm,-11.868mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=477.103mil|Location2.X=561.087mil|Location1.Y=946.787mil|Location2.Y=1113.842mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=477.103mil|Location2.X=561.087mil|Location1.Y=946.787mil|Location2.Y=1113.842mil|Absolute=True">Un-Routed Net Constraint: Net VM Between Pad C1-2(-22.86mm,-13.97mm) on Top Layer And Pad C3-2(-22.23mm,-16.51mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=402.299mil|Location2.X=473.39mil|Location1.Y=1129.557mil|Location2.Y=1263.842mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=402.299mil|Location2.X=473.39mil|Location1.Y=1129.557mil|Location2.Y=1263.842mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C4-1(-24.76mm,-10.16mm) on Top Layer And Pad C2-1(-24.457mm,-11.868mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=477.103mil|Location2.X=548.193mil|Location1.Y=1129.557mil|Location2.Y=1263.842mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=477.103mil|Location2.X=548.193mil|Location1.Y=1129.557mil|Location2.Y=1263.842mil|Absolute=True">Un-Routed Net Constraint: Net VM Between Pad C4-2(-22.86mm,-10.16mm) on Top Layer And Pad C2-2(-22.558mm,-11.868mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=402.299mil|Location2.X=922.441mil|Location1.Y=1196.787mil|Location2.Y=1296.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=402.299mil|Location2.X=922.441mil|Location1.Y=1196.787mil|Location2.Y=1296.063mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C4-1(-24.76mm,-10.16mm) on Top Layer And Pad C5-2(-12.7mm,-8.89mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=477.103mil|Location2.X=1078.321mil|Location1.Y=1191.181mil|Location2.Y=1263.842mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=477.103mil|Location2.X=1078.321mil|Location1.Y=1191.181mil|Location2.Y=1263.842mil|Absolute=True">Un-Routed Net Constraint: Net VM Between Pad C4-2(-22.86mm,-10.16mm) on Top Layer And Pad C6-1(-8.741mm,-10.754mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=323.228mil|Location2.X=887.008mil|Location1.Y=1264.567mil|Location2.Y=1446.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=323.228mil|Location2.X=887.008mil|Location1.Y=1264.567mil|Location2.Y=1446.063mil|Absolute=True">Un-Routed Net Constraint: Net VCC 3V3 Between Pad R3-1(-27.12mm,-5.08mm) on Top Layer [Unplated] And Pad C5-1(-13.6mm,-8.89mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=890.945mil|Location2.X=1113.754mil|Location1.Y=1191.181mil|Location2.Y=1296.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=890.945mil|Location2.X=1113.754mil|Location1.Y=1191.181mil|Location2.Y=1296.063mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C5-2(-12.7mm,-8.89mm) on Top Layer [Unplated] And Pad C6-2(-7.841mm,-10.754mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=877.661mil|Location2.X=922.441mil|Location1.Y=1264.567mil|Location2.Y=1946.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=877.661mil|Location2.X=922.441mil|Location1.Y=1264.567mil|Location2.Y=1946.063mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R6-2(-13.037mm,7.62mm) on Top Layer [Unplated] And Pad C5-2(-12.7mm,-8.89mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1046.825mil|Location2.X=1608.807mil|Location1.Y=1191.181mil|Location2.Y=1841.441mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1046.825mil|Location2.X=1608.807mil|Location1.Y=1191.181mil|Location2.Y=1841.441mil|Absolute=True">Un-Routed Net Constraint: Net VM Between Pad C6-1(-8.741mm,-10.754mm) on Top Layer [Unplated] And Pad U1_MotorDrive-A-5(5.014mm,4.897mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1082.258mil|Location2.X=1493.878mil|Location1.Y=493.13mil|Location2.Y=1222.678mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1082.258mil|Location2.X=1493.878mil|Location1.Y=493.13mil|Location2.Y=1222.678mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C6-2(-7.841mm,-10.754mm) on Top Layer [Unplated] And Pad MB1-8(1.27mm,-27.94mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1865.779mil|Location2.X=1952.393mil|Location1.Y=1096.032mil|Location2.Y=1863.78mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1865.779mil|Location2.X=1952.393mil|Location1.Y=1096.032mil|Location2.Y=1863.78mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R5_MotorDrive-A-2(12.7mm,5.53mm) on Top Layer [Unplated] And Pad C7-1(12.761mm,-11.421mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9.945mil|Location2.X=41.441mil|Location1.Y=2446.85mil|Location2.Y=3078.347mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9.945mil|Location2.X=41.441mil|Location1.Y=2446.85mil|Location2.Y=3078.347mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C8_MotorDrive-A-1(-35.077mm,21.14mm) on Top Layer [Unplated] And Pad C8_MotorDrive-B-1(-35.077mm,36.38mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9.945mil|Location2.X=41.441mil|Location1.Y=1932.283mil|Location2.Y=2478.347mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9.945mil|Location2.X=41.441mil|Location1.Y=1932.283mil|Location2.Y=2478.347mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R12-2(-35.077mm,8.07mm) on Top Layer [Unplated] And Pad C8_MotorDrive-A-1(-35.077mm,21.14mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9.945mil|Location2.X=1651.579mil|Location1.Y=1730.193mil|Location2.Y=2513.78mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9.945mil|Location2.X=1651.579mil|Location1.Y=1730.193mil|Location2.Y=2513.78mil|Absolute=True">Un-Routed Net Constraint: Net IPROP Between Pad C8_MotorDrive-A-2(-35.077mm,22.04mm) on Top Layer [Unplated] And Pad U1_MotorDrive-A-1(5.755mm,2.657mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9.945mil|Location2.X=991.441mil|Location1.Y=3032.283mil|Location2.Y=3078.347mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9.945mil|Location2.X=991.441mil|Location1.Y=3032.283mil|Location2.Y=3078.347mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C8_MotorDrive-B-1(-35.077mm,36.38mm) on Top Layer [Unplated] And Pad R5_MotorDrive-B-2(-10.947mm,36.01mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9.945mil|Location2.X=991.441mil|Location1.Y=2996.85mil|Location2.Y=3113.78mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9.945mil|Location2.X=991.441mil|Location1.Y=2996.85mil|Location2.Y=3113.78mil|Absolute=True">Un-Routed Net Constraint: Net NetC8_MotorDrive-B_2 Between Pad C8_MotorDrive-B-2(-35.077mm,37.28mm) on Top Layer [Unplated] And Pad R5_MotorDrive-B-1(-10.947mm,35.11mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1890.945mil|Location2.X=2020.672mil|Location1.Y=1832.283mil|Location2.Y=2341.82mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1890.945mil|Location2.X=2020.672mil|Location1.Y=1832.283mil|Location2.Y=2341.82mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R5_MotorDrive-A-2(12.7mm,5.53mm) on Top Layer [Unplated] And Pad J2-1(14.445mm,16.922mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1873.008mil|Location2.X=2020.672mil|Location1.Y=2251.269mil|Location2.Y=2564mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1873.008mil|Location2.X=2020.672mil|Location1.Y=2251.269mil|Location2.Y=2564mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (12.7mm,22.86mm) from Top Layer to Bottom Layer And Pad J2-1(14.445mm,16.922mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1419.508mil|Location2.X=1651.579mil|Location1.Y=1193.13mil|Location2.Y=1739.613mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1419.508mil|Location2.X=1651.579mil|Location1.Y=1193.13mil|Location2.Y=1739.613mil|Absolute=True">Un-Routed Net Constraint: Net IPROP Between Pad MB1-1(1.27mm,-10.16mm) on Multi-Layer And Pad U1_MotorDrive-A-1(5.755mm,2.657mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2216.302mil|Location2.X=2393.878mil|Location1.Y=693.13mil|Location2.Y=1728.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2216.302mil|Location2.X=2393.878mil|Location1.Y=693.13mil|Location2.Y=1728.167mil|Absolute=True">Un-Routed Net Constraint: Net SDA Between Pad U1_MotorDrive-B-14(20.684mm,2.02mm) on Top Layer And Pad MB1-11(24.13mm,-22.86mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2235.987mil|Location2.X=2393.878mil|Location1.Y=793.13mil|Location2.Y=1728.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2235.987mil|Location2.X=2393.878mil|Location1.Y=793.13mil|Location2.Y=1728.167mil|Absolute=True">Un-Routed Net Constraint: Net SCL Between Pad U1_MotorDrive-B-15(21.184mm,2.02mm) on Top Layer And Pad MB1-12(24.13mm,-20.32mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2271.209mil|Location2.X=2393.878mil|Location1.Y=1093.13mil|Location2.Y=1802.759mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2271.209mil|Location2.X=2393.878mil|Location1.Y=1093.13mil|Location2.Y=1802.759mil|Absolute=True">Un-Routed Net Constraint: Net FAULT Between Pad U1_MotorDrive-B-4(22.424mm,4.26mm) on Top Layer And Pad MB1-15(24.13mm,-12.7mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1540.331mil|Location2.X=2393.878mil|Location1.Y=1193.13mil|Location2.Y=1724.076mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1540.331mil|Location2.X=2393.878mil|Location1.Y=1193.13mil|Location2.Y=1724.076mil|Absolute=True">Un-Routed Net Constraint: Net PWM Between Pad U1_MotorDrive-A-13(3.514mm,1.916mm) on Top Layer And Pad MB1-16(24.13mm,-10.16mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1419.508mil|Location2.X=1572.441mil|Location1.Y=1093.13mil|Location2.Y=1646.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1419.508mil|Location2.X=1572.441mil|Location1.Y=1093.13mil|Location2.Y=1646.063mil|Absolute=True">Un-Routed Net Constraint: Net SLEEP Between Pad MB1-2(1.27mm,-12.7mm) on Multi-Layer And Pad R14-2(3.81mm,0mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=39.862mil|Location2.X=1493.878mil|Location1.Y=993.13mil|Location2.Y=1409.147mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=39.862mil|Location2.X=1493.878mil|Location1.Y=993.13mil|Location2.Y=1409.147mil|Absolute=True">Un-Routed Net Constraint: Net RC OUT Between Pad R4-2(-34.318mm,-6.018mm) on Top Layer [Unplated] And Pad MB1-3(1.27mm,-15.24mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1419.508mil|Location2.X=1651.579mil|Location1.Y=993.13mil|Location2.Y=1778.983mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1419.508mil|Location2.X=1651.579mil|Location1.Y=993.13mil|Location2.Y=1778.983mil|Absolute=True">Un-Routed Net Constraint: Net RC OUT Between Pad MB1-3(1.27mm,-15.24mm) on Multi-Layer And Pad U1_MotorDrive-A-3(5.755mm,3.657mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1409.193mil|Location2.X=1504.193mil|Location1.Y=682.815mil|Location2.Y=1646.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1409.193mil|Location2.X=1504.193mil|Location1.Y=682.815mil|Location2.Y=1646.063mil|Absolute=True">Un-Routed Net Constraint: Net VCC 3V3 Between Pad MB1-6(1.27mm,-22.86mm) on Multi-Layer And Pad R9-1(1.27mm,0mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1419.508mil|Location2.X=1534.215mil|Location1.Y=593.13mil|Location2.Y=1739.613mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1419.508mil|Location2.X=1534.215mil|Location1.Y=593.13mil|Location2.Y=1739.613mil|Absolute=True">Un-Routed Net Constraint: Net DIR Between Pad MB1-7(1.27mm,-25.4mm) on Multi-Layer And Pad U1_MotorDrive-A-12(2.774mm,2.657mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1419.508mil|Location2.X=2393.878mil|Location1.Y=493.13mil|Location2.Y=567.5mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1419.508mil|Location2.X=2393.878mil|Location1.Y=493.13mil|Location2.Y=567.5mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad MB1-8(1.27mm,-27.94mm) on Multi-Layer And Pad MB1-9(24.13mm,-27.94mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=259.945mil|Location2.X=673.725mil|Location1.Y=1896.85mil|Location2.Y=1946.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=259.945mil|Location2.X=673.725mil|Location1.Y=1896.85mil|Location2.Y=1946.063mil|Absolute=True">Un-Routed Net Constraint: Net VCC 3V3 Between Pad R13-1(-28.727mm,7.17mm) on Top Layer [Unplated] And Pad R10-1(-19.017mm,7.62mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=642.228mil|Location2.X=1173.725mil|Location1.Y=1914.567mil|Location2.Y=1946.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=642.228mil|Location2.X=1173.725mil|Location1.Y=1914.567mil|Location2.Y=1946.063mil|Absolute=True">Un-Routed Net Constraint: Net VCC 3V3 Between Pad R10-1(-19.017mm,7.62mm) on Top Layer [Unplated] And Pad R8-1(-6.317mm,7.62mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=442.228mil|Location2.X=709.158mil|Location1.Y=1914.567mil|Location2.Y=1946.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=442.228mil|Location2.X=709.158mil|Location1.Y=1914.567mil|Location2.Y=1946.063mil|Absolute=True">Un-Routed Net Constraint: Net NetR10_2 Between Pad R11-1(-24.097mm,7.62mm) on Top Layer [Unplated] And Pad R10-2(-18.117mm,7.62mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=677.661mil|Location2.X=2190.5mil|Location1.Y=1773.653mil|Location2.Y=1946.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=677.661mil|Location2.X=2190.5mil|Location1.Y=1773.653mil|Location2.Y=1946.063mil|Absolute=True">Un-Routed Net Constraint: Net NetR10_2 Between Pad R10-2(-18.117mm,7.62mm) on Top Layer [Unplated] And Pad U1_MotorDrive-B-10(19.443mm,3.76mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2271.209mil|Location2.X=2504.725mil|Location1.Y=1753.968mil|Location2.Y=2246.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2271.209mil|Location2.X=2504.725mil|Location1.Y=1753.968mil|Location2.Y=2246.063mil|Absolute=True">Un-Routed Net Constraint: Net VCC 3V3 Between Pad U1_MotorDrive-B-2(22.424mm,3.26mm) on Top Layer And Pad R1-1(27.49mm,15.24mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9.945mil|Location2.X=509.158mil|Location1.Y=1914.567mil|Location2.Y=1963.78mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9.945mil|Location2.X=509.158mil|Location1.Y=1914.567mil|Location2.Y=1963.78mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R12-2(-35.077mm,8.07mm) on Top Layer [Unplated] And Pad R11-2(-23.197mm,7.62mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=477.661mil|Location2.X=909.158mil|Location1.Y=1914.567mil|Location2.Y=1946.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=477.661mil|Location2.X=909.158mil|Location1.Y=1914.567mil|Location2.Y=1946.063mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R11-2(-23.197mm,7.62mm) on Top Layer [Unplated] And Pad R6-2(-13.037mm,7.62mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2216.302mil|Location2.X=2540.158mil|Location1.Y=1691.511mil|Location2.Y=2246.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2216.302mil|Location2.X=2540.158mil|Location1.Y=1691.511mil|Location2.Y=2246.063mil|Absolute=True">Un-Routed Net Constraint: Net SDA Between Pad U1_MotorDrive-B-14(20.684mm,2.02mm) on Top Layer And Pad R1-2(28.39mm,15.24mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9.945mil|Location2.X=291.441mil|Location1.Y=1896.85mil|Location2.Y=1963.78mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9.945mil|Location2.X=291.441mil|Location1.Y=1896.85mil|Location2.Y=1963.78mil|Absolute=True">Un-Routed Net Constraint: Net NetR12_1 Between Pad R12-1(-35.077mm,7.17mm) on Top Layer [Unplated] And Pad R13-2(-28.727mm,8.07mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=259.945mil|Location2.X=354.725mil|Location1.Y=1414.567mil|Location2.Y=1928.347mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=259.945mil|Location2.X=354.725mil|Location1.Y=1414.567mil|Location2.Y=1928.347mil|Absolute=True">Un-Routed Net Constraint: Net VCC 3V3 Between Pad R13-1(-28.727mm,7.17mm) on Top Layer [Unplated] And Pad R3-1(-27.12mm,-5.08mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=259.945mil|Location2.X=2190.5mil|Location1.Y=1793.338mil|Location2.Y=1963.78mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=259.945mil|Location2.X=2190.5mil|Location1.Y=1793.338mil|Location2.Y=1963.78mil|Absolute=True">Un-Routed Net Constraint: Net NetR12_1 Between Pad R13-2(-28.727mm,8.07mm) on Top Layer [Unplated] And Pad U1_MotorDrive-B-9(19.443mm,4.26mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1440.945mil|Location2.X=1607.874mil|Location1.Y=1614.567mil|Location2.Y=1646.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1440.945mil|Location2.X=1607.874mil|Location1.Y=1614.567mil|Location2.Y=1646.063mil|Absolute=True">Un-Routed Net Constraint: Net VCC 3V3 Between Pad R9-1(1.27mm,0mm) on Top Layer [Unplated] And Pad R14-1(4.71mm,0mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1576.378mil|Location2.X=1608.807mil|Location1.Y=1614.567mil|Location2.Y=1724.076mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1576.378mil|Location2.X=1608.807mil|Location1.Y=1614.567mil|Location2.Y=1724.076mil|Absolute=True">Un-Routed Net Constraint: Net VCC 3V3 Between Pad R14-1(4.71mm,0mm) on Top Layer [Unplated] And Pad U1_MotorDrive-A-16(5.014mm,1.916mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1497.559mil|Location2.X=1572.441mil|Location1.Y=1614.567mil|Location2.Y=1759.298mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1497.559mil|Location2.X=1572.441mil|Location1.Y=1614.567mil|Location2.Y=1759.298mil|Absolute=True">Un-Routed Net Constraint: Net SLEEP Between Pad U1_MotorDrive-A-11(2.774mm,3.157mm) on Top Layer And Pad R14-2(3.81mm,0mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=104.429mil|Location2.X=354.725mil|Location1.Y=1377.651mil|Location2.Y=1446.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=104.429mil|Location2.X=354.725mil|Location1.Y=1377.651mil|Location2.Y=1446.063mil|Absolute=True">Un-Routed Net Constraint: Net VCC 3V3 Between Pad R2-1(-32.677mm,-6.018mm) on Top Layer [Unplated] And Pad R3-1(-27.12mm,-5.08mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4.429mil|Location2.X=135.925mil|Location1.Y=1377.651mil|Location2.Y=1409.147mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4.429mil|Location2.X=135.925mil|Location1.Y=1377.651mil|Location2.Y=1409.147mil|Absolute=True">Un-Routed Net Constraint: Net VCC 3V3 Between Pad R4-1(-35.217mm,-6.018mm) on Top Layer [Unplated] And Pad R2-1(-32.677mm,-6.018mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=139.862mil|Location2.X=1589.122mil|Location1.Y=1377.651mil|Location2.Y=1724.076mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=139.862mil|Location2.X=1589.122mil|Location1.Y=1377.651mil|Location2.Y=1724.076mil|Absolute=True">Un-Routed Net Constraint: Net SCL Between Pad R2-2(-31.778mm,-6.018mm) on Top Layer [Unplated] And Pad U1_MotorDrive-A-15(4.514mm,1.916mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=358.661mil|Location2.X=1651.579mil|Location1.Y=1414.567mil|Location2.Y=1798.668mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=358.661mil|Location2.X=1651.579mil|Location1.Y=1414.567mil|Location2.Y=1798.668mil|Absolute=True">Un-Routed Net Constraint: Net FAULT Between Pad R3-2(-26.22mm,-5.08mm) on Top Layer [Unplated] And Pad U1_MotorDrive-A-4(5.755mm,4.157mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1614.923mil|Location2.X=1922.441mil|Location1.Y=1730.193mil|Location2.Y=1828.347mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1614.923mil|Location2.X=1922.441mil|Location1.Y=1730.193mil|Location2.Y=1828.347mil|Absolute=True">Un-Routed Net Constraint: Net IPROP Between Pad U1_MotorDrive-A-1(5.755mm,2.657mm) on Top Layer And Pad R5_MotorDrive-A-1(12.7mm,4.63mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1560.016mil|Location2.X=1922.441mil|Location1.Y=1804.785mil|Location2.Y=1863.78mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1560.016mil|Location2.X=1922.441mil|Location1.Y=1804.785mil|Location2.Y=1863.78mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U1_MotorDrive-A-7(4.014mm,4.897mm) on Top Layer And Pad R5_MotorDrive-A-2(12.7mm,5.53mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1890.945mil|Location2.X=2225.723mil|Location1.Y=1808.875mil|Location2.Y=1863.78mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1890.945mil|Location2.X=2225.723mil|Location1.Y=1808.875mil|Location2.Y=1863.78mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R5_MotorDrive-A-2(12.7mm,5.53mm) on Top Layer [Unplated] And Pad U1_MotorDrive-B-7(20.684mm,5.001mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=959.945mil|Location2.X=2307.865mil|Location1.Y=1734.283mil|Location2.Y=3028.347mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=959.945mil|Location2.X=2307.865mil|Location1.Y=1734.283mil|Location2.Y=3028.347mil|Absolute=True">Un-Routed Net Constraint: Net NetC8_MotorDrive-B_2 Between Pad R5_MotorDrive-B-1(-10.947mm,35.11mm) on Top Layer [Unplated] And Pad U1_MotorDrive-B-1(22.424mm,2.76mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=842.228mil|Location2.X=1209.158mil|Location1.Y=1914.567mil|Location2.Y=1946.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=842.228mil|Location2.X=1209.158mil|Location1.Y=1914.567mil|Location2.Y=1946.063mil|Absolute=True">Un-Routed Net Constraint: Net NetR6_1 Between Pad R6-1(-13.937mm,7.62mm) on Top Layer [Unplated] And Pad R8-2(-5.417mm,7.62mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=877.661mil|Location2.X=1059.158mil|Location1.Y=1914.567mil|Location2.Y=1946.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=877.661mil|Location2.X=1059.158mil|Location1.Y=1914.567mil|Location2.Y=1946.063mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R6-2(-13.037mm,7.62mm) on Top Layer [Unplated] And Pad R7-2(-9.227mm,7.62mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=992.228mil|Location2.X=1534.215mil|Location1.Y=1769.563mil|Location2.Y=1946.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=992.228mil|Location2.X=1534.215mil|Location1.Y=1769.563mil|Location2.Y=1946.063mil|Absolute=True">Un-Routed Net Constraint: Net NetR7_1 Between Pad R7-1(-10.127mm,7.62mm) on Top Layer [Unplated] And Pad U1_MotorDrive-A-10(2.774mm,3.657mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1027.661mil|Location2.X=1569.437mil|Location1.Y=1804.785mil|Location2.Y=1946.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1027.661mil|Location2.X=1569.437mil|Location1.Y=1804.785mil|Location2.Y=1946.063mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R7-2(-9.227mm,7.62mm) on Top Layer [Unplated] And Pad U1_MotorDrive-A-7(4.014mm,4.897mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1142.228mil|Location2.X=1472.441mil|Location1.Y=1614.567mil|Location2.Y=1946.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1142.228mil|Location2.X=1472.441mil|Location1.Y=1614.567mil|Location2.Y=1946.063mil|Absolute=True">Un-Routed Net Constraint: Net VCC 3V3 Between Pad R8-1(-6.317mm,7.62mm) on Top Layer [Unplated] And Pad R9-1(1.27mm,0mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1177.661mil|Location2.X=1534.215mil|Location1.Y=1789.248mil|Location2.Y=1946.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1177.661mil|Location2.X=1534.215mil|Location1.Y=1789.248mil|Location2.Y=1946.063mil|Absolute=True">Un-Routed Net Constraint: Net NetR6_1 Between Pad R8-2(-5.417mm,7.62mm) on Top Layer [Unplated] And Pad U1_MotorDrive-A-9(2.774mm,4.157mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1440.945mil|Location2.X=1534.215mil|Location1.Y=1650mil|Location2.Y=1778.983mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1440.945mil|Location2.X=1534.215mil|Location1.Y=1650mil|Location2.Y=1778.983mil|Absolute=True">Un-Routed Net Constraint: Net NetR7_1 Between Pad R9-2(1.27mm,0.9mm) on Top Layer [Unplated] And Pad U1_MotorDrive-A-10(2.774mm,3.657mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1497.559mil|Location2.X=2190.5mil|Location1.Y=1749.878mil|Location2.Y=1763.389mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1497.559mil|Location2.X=2190.5mil|Location1.Y=1749.878mil|Location2.Y=1763.389mil|Absolute=True">Un-Routed Net Constraint: Net SLEEP Between Pad U1_MotorDrive-A-11(2.774mm,3.157mm) on Top Layer And Pad U1_MotorDrive-B-11(19.443mm,3.26mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1560.016mil|Location2.X=2225.723mil|Location1.Y=1687.42mil|Location2.Y=1728.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1560.016mil|Location2.X=2225.723mil|Location1.Y=1687.42mil|Location2.Y=1728.167mil|Absolute=True">Un-Routed Net Constraint: Net SDA Between Pad U1_MotorDrive-A-14(4.014mm,1.916mm) on Top Layer And Pad U1_MotorDrive-B-14(20.684mm,2.02mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1579.701mil|Location2.X=2245.408mil|Location1.Y=1687.42mil|Location2.Y=1728.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1579.701mil|Location2.X=2245.408mil|Location1.Y=1687.42mil|Location2.Y=1728.167mil|Absolute=True">Un-Routed Net Constraint: Net SCL Between Pad U1_MotorDrive-A-15(4.514mm,1.916mm) on Top Layer And Pad U1_MotorDrive-B-15(21.184mm,2.02mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1599.386mil|Location2.X=1651.579mil|Location1.Y=1687.42mil|Location2.Y=1759.298mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1599.386mil|Location2.X=1651.579mil|Location1.Y=1687.42mil|Location2.Y=1759.298mil|Absolute=True">Un-Routed Net Constraint: Net VCC 3V3 Between Pad U1_MotorDrive-A-16(5.014mm,1.916mm) on Top Layer And Pad U1_MotorDrive-A-2(5.755mm,3.157mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1540.12mil|Location2.X=1609.018mil|Location1.Y=1729.982mil|Location2.Y=1841.441mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1540.12mil|Location2.X=1609.018mil|Location1.Y=1729.982mil|Location2.Y=1841.441mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U1_MotorDrive-A-7(4.014mm,4.897mm) on Top Layer And Pad U1_MotorDrive-A-17(4.264mm,3.407mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1614.923mil|Location2.X=2307.865mil|Location1.Y=1749.878mil|Location2.Y=1763.389mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1614.923mil|Location2.X=2307.865mil|Location1.Y=1749.878mil|Location2.Y=1763.389mil|Absolute=True">Un-Routed Net Constraint: Net VCC 3V3 Between Pad U1_MotorDrive-A-2(5.755mm,3.157mm) on Top Layer And Pad U1_MotorDrive-B-2(22.424mm,3.26mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1614.923mil|Location2.X=2307.865mil|Location1.Y=1789.248mil|Location2.Y=1802.759mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1614.923mil|Location2.X=2307.865mil|Location1.Y=1789.248mil|Location2.Y=1802.759mil|Absolute=True">Un-Routed Net Constraint: Net FAULT Between Pad U1_MotorDrive-A-4(5.755mm,4.157mm) on Top Layer And Pad U1_MotorDrive-B-4(22.424mm,4.26mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2255.672mil|Location2.X=2307.865mil|Location1.Y=1691.511mil|Location2.Y=1763.389mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2255.672mil|Location2.X=2307.865mil|Location1.Y=1691.511mil|Location2.Y=1763.389mil|Absolute=True">Un-Routed Net Constraint: Net VCC 3V3 Between Pad U1_MotorDrive-B-16(21.684mm,2.02mm) on Top Layer And Pad U1_MotorDrive-B-2(22.424mm,3.26mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2196.406mil|Location2.X=2265.304mil|Location1.Y=1734.072mil|Location2.Y=1845.531mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2196.406mil|Location2.X=2265.304mil|Location1.Y=1734.072mil|Location2.Y=1845.531mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U1_MotorDrive-B-7(20.684mm,5.001mm) on Top Layer And Pad U1_MotorDrive-B-17(20.934mm,3.51mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1737.352mil|Location2.X=2360.382mil|Location1.Y=1722.896mil|Location2.Y=1927.203mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1737.352mil|Location2.X=2360.382mil|Location1.Y=1722.896mil|Location2.Y=1927.203mil|Absolute=True">Un-Routed Net Constraint: Net VM Between Track (10.933mm,4.897mm)(10.939mm,4.892mm) on Top Layer And Pad U1_MotorDrive-B-5(21.684mm,5.001mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1416.877mil|Location2.X=2396.513mil|Location1.Y=390.554mil|Location2.Y=2620.138mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1416.877mil|Location2.X=2396.513mil|Location1.Y=390.554mil|Location2.Y=2620.138mil|Absolute=True">Un-Routed Net Constraint: Split Plane  (No Net) on Int1 (GND) Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDU4LPHJ3VRSFQGRDN32X1IXOHZMNBD1XYFX2BOVN5FX5TDTJIKXAJ"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=0.075mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=459.379mil|Location2.X=463.582mil|Location1.Y=1194.598mil|Location2.Y=1198.801mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=459.379mil|Location2.X=463.582mil|Location1.Y=1194.598mil|Location2.Y=1198.801mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.004mm &lt; 0.075mm) Between Pad C2-1(-24.457mm,-11.868mm) on Top Layer And Pad C4-1(-24.76mm,-10.16mm) on Top Layer [Top Solder] Mask Sliver [0.004mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=534.182mil|Location2.X=538.385mil|Location1.Y=1194.598mil|Location2.Y=1198.801mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=534.182mil|Location2.X=538.385mil|Location1.Y=1194.598mil|Location2.Y=1198.801mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.004mm &lt; 0.075mm) Between Pad C2-2(-22.558mm,-11.868mm) on Top Layer And Pad C4-2(-22.86mm,-10.16mm) on Top Layer [Top Solder] Mask Sliver [0.004mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDJHXVMHLZXZC1PY55YXWL1DTLRKP1JB1QV1MXZJCNMY2KEKB1XAKP"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Net Antennae (Tolerance=0mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1869.508mil|Location2.X=1955.543mil|Location1.Y=2493.13mil|Location2.Y=2632.312mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1869.508mil|Location2.X=1955.543mil|Location1.Y=2493.13mil|Location2.Y=2632.312mil|Absolute=True">Net Antennae: Via (12.7mm,22.86mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID3LXFEP22BIVPIGDIJREILYQAWLLNVQVZW1DNBTMOFZHYHKMYXRBO"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Board Clearance Constraint (Gap=0mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=424.828mil|Location2.X=472.781mil|Location1.Y=1073.253mil|Location2.Y=1087.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=424.828mil|Location2.X=472.781mil|Location1.Y=1073.253mil|Location2.Y=1087.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad C1-1(-24.76mm,-13.97mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=499.631mil|Location2.X=547.585mil|Location1.Y=1073.253mil|Location2.Y=1087.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=499.631mil|Location2.X=547.585mil|Location1.Y=1073.253mil|Location2.Y=1087.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad C1-2(-22.86mm,-13.97mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=436.738mil|Location2.X=484.691mil|Location1.Y=1156.023mil|Location2.Y=1170.146mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=436.738mil|Location2.X=484.691mil|Location1.Y=1156.023mil|Location2.Y=1170.146mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad C2-1(-24.457mm,-11.868mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=511.541mil|Location2.X=559.494mil|Location1.Y=1156.023mil|Location2.Y=1170.146mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=511.541mil|Location2.X=559.494mil|Location1.Y=1156.023mil|Location2.Y=1170.146mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad C2-2(-22.558mm,-11.868mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=449.631mil|Location2.X=497.585mil|Location1.Y=973.253mil|Location2.Y=987.376mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=449.631mil|Location2.X=497.585mil|Location1.Y=973.253mil|Location2.Y=987.376mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad C3-1(-24.13mm,-16.51mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=524.434mil|Location2.X=572.388mil|Location1.Y=973.253mil|Location2.Y=987.376mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=524.434mil|Location2.X=572.388mil|Location1.Y=973.253mil|Location2.Y=987.376mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad C3-2(-22.23mm,-16.51mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=424.828mil|Location2.X=472.781mil|Location1.Y=1223.253mil|Location2.Y=1237.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=424.828mil|Location2.X=472.781mil|Location1.Y=1223.253mil|Location2.Y=1237.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad C4-1(-24.76mm,-10.16mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=499.631mil|Location2.X=547.585mil|Location1.Y=1223.253mil|Location2.Y=1237.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=499.631mil|Location2.X=547.585mil|Location1.Y=1223.253mil|Location2.Y=1237.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad C4-2(-22.86mm,-10.16mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=864.198mil|Location2.X=912.152mil|Location1.Y=1273.253mil|Location2.Y=1287.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=864.198mil|Location2.X=912.152mil|Location1.Y=1273.253mil|Location2.Y=1287.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad C5-1(-13.6mm,-8.89mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=899.631mil|Location2.X=947.585mil|Location1.Y=1273.253mil|Location2.Y=1287.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=899.631mil|Location2.X=947.585mil|Location1.Y=1273.253mil|Location2.Y=1287.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad C5-2(-12.7mm,-8.89mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1055.512mil|Location2.X=1103.465mil|Location1.Y=1199.868mil|Location2.Y=1213.991mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1055.512mil|Location2.X=1103.465mil|Location1.Y=1199.868mil|Location2.Y=1213.991mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad C6-1(-8.741mm,-10.754mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1090.945mil|Location2.X=1138.898mil|Location1.Y=1199.868mil|Location2.Y=1213.991mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1090.945mil|Location2.X=1138.898mil|Location1.Y=1199.868mil|Location2.Y=1213.991mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad C6-2(-7.841mm,-10.754mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18.631mil|Location2.X=66.585mil|Location1.Y=2455.537mil|Location2.Y=2469.66mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18.631mil|Location2.X=66.585mil|Location1.Y=2455.537mil|Location2.Y=2469.66mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad C8_MotorDrive-A-1(-35.077mm,21.14mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18.631mil|Location2.X=66.585mil|Location1.Y=2490.97mil|Location2.Y=2505.093mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18.631mil|Location2.X=66.585mil|Location1.Y=2490.97mil|Location2.Y=2505.093mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad C8_MotorDrive-A-2(-35.077mm,22.04mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18.631mil|Location2.X=66.585mil|Location1.Y=3055.537mil|Location2.Y=3069.66mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18.631mil|Location2.X=66.585mil|Location1.Y=3055.537mil|Location2.Y=3069.66mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad C8_MotorDrive-B-1(-35.077mm,36.38mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18.631mil|Location2.X=66.585mil|Location1.Y=3090.97mil|Location2.Y=3105.093mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18.631mil|Location2.X=66.585mil|Location1.Y=3090.97mil|Location2.Y=3105.093mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad C8_MotorDrive-B-2(-35.077mm,37.28mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=650.915mil|Location2.X=698.868mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=650.915mil|Location2.X=698.868mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R10-1(-19.017mm,7.62mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=686.348mil|Location2.X=734.301mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=686.348mil|Location2.X=734.301mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R10-2(-18.117mm,7.62mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2481.915mil|Location2.X=2529.868mil|Location1.Y=2223.253mil|Location2.Y=2237.376mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2481.915mil|Location2.X=2529.868mil|Location1.Y=2223.253mil|Location2.Y=2237.376mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R1-1(27.49mm,15.24mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=450.915mil|Location2.X=498.868mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=450.915mil|Location2.X=498.868mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R11-1(-24.097mm,7.62mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=486.348mil|Location2.X=534.301mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=486.348mil|Location2.X=534.301mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R11-2(-23.197mm,7.62mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2517.348mil|Location2.X=2565.301mil|Location1.Y=2223.253mil|Location2.Y=2237.376mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2517.348mil|Location2.X=2565.301mil|Location1.Y=2223.253mil|Location2.Y=2237.376mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R1-2(28.39mm,15.24mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18.631mil|Location2.X=66.585mil|Location1.Y=1905.537mil|Location2.Y=1919.66mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18.631mil|Location2.X=66.585mil|Location1.Y=1905.537mil|Location2.Y=1919.66mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R12-1(-35.077mm,7.17mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18.631mil|Location2.X=66.585mil|Location1.Y=1940.97mil|Location2.Y=1955.093mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18.631mil|Location2.X=66.585mil|Location1.Y=1940.97mil|Location2.Y=1955.093mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R12-2(-35.077mm,8.07mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=268.631mil|Location2.X=316.585mil|Location1.Y=1905.537mil|Location2.Y=1919.66mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=268.631mil|Location2.X=316.585mil|Location1.Y=1905.537mil|Location2.Y=1919.66mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R13-1(-28.727mm,7.17mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=268.631mil|Location2.X=316.585mil|Location1.Y=1940.97mil|Location2.Y=1955.093mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=268.631mil|Location2.X=316.585mil|Location1.Y=1940.97mil|Location2.Y=1955.093mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R13-2(-28.727mm,8.07mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=113.116mil|Location2.X=161.069mil|Location1.Y=1386.338mil|Location2.Y=1400.461mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=113.116mil|Location2.X=161.069mil|Location1.Y=1386.338mil|Location2.Y=1400.461mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R2-1(-32.677mm,-6.018mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=148.549mil|Location2.X=196.502mil|Location1.Y=1386.338mil|Location2.Y=1400.461mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=148.549mil|Location2.X=196.502mil|Location1.Y=1386.338mil|Location2.Y=1400.461mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R2-2(-31.778mm,-6.018mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=331.915mil|Location2.X=379.868mil|Location1.Y=1423.253mil|Location2.Y=1437.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=331.915mil|Location2.X=379.868mil|Location1.Y=1423.253mil|Location2.Y=1437.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R3-1(-27.12mm,-5.08mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=367.348mil|Location2.X=415.301mil|Location1.Y=1423.253mil|Location2.Y=1437.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=367.348mil|Location2.X=415.301mil|Location1.Y=1423.253mil|Location2.Y=1437.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R3-2(-26.22mm,-5.08mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13.116mil|Location2.X=61.069mil|Location1.Y=1386.338mil|Location2.Y=1400.461mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13.116mil|Location2.X=61.069mil|Location1.Y=1386.338mil|Location2.Y=1400.461mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R4-1(-35.217mm,-6.018mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=48.549mil|Location2.X=96.502mil|Location1.Y=1386.338mil|Location2.Y=1400.461mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=48.549mil|Location2.X=96.502mil|Location1.Y=1386.338mil|Location2.Y=1400.461mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R4-2(-34.318mm,-6.018mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=968.631mil|Location2.X=1016.585mil|Location1.Y=3005.537mil|Location2.Y=3019.66mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=968.631mil|Location2.X=1016.585mil|Location1.Y=3005.537mil|Location2.Y=3019.66mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R5_MotorDrive-B-1(-10.947mm,35.11mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=968.631mil|Location2.X=1016.585mil|Location1.Y=3040.97mil|Location2.Y=3055.093mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=968.631mil|Location2.X=1016.585mil|Location1.Y=3040.97mil|Location2.Y=3055.093mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R5_MotorDrive-B-2(-10.947mm,36.01mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=850.915mil|Location2.X=898.868mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=850.915mil|Location2.X=898.868mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R6-1(-13.937mm,7.62mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=886.348mil|Location2.X=934.301mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=886.348mil|Location2.X=934.301mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R6-2(-13.037mm,7.62mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1000.915mil|Location2.X=1048.868mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1000.915mil|Location2.X=1048.868mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R7-1(-10.127mm,7.62mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1036.348mil|Location2.X=1084.301mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1036.348mil|Location2.X=1084.301mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R7-2(-9.227mm,7.62mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1150.915mil|Location2.X=1198.868mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1150.915mil|Location2.X=1198.868mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R8-1(-6.317mm,7.62mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1186.348mil|Location2.X=1234.301mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1186.348mil|Location2.X=1234.301mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Pad R8-2(-5.417mm,7.62mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=436.925mil|Location2.X=484.879mil|Location1.Y=1175.929mil|Location2.Y=1190.052mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=436.925mil|Location2.X=484.879mil|Location1.Y=1175.929mil|Location2.Y=1190.052mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "C1" (-25.468mm,-12.124mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=459.145mil|Location2.X=507.098mil|Location1.Y=1257.929mil|Location2.Y=1272.052mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=459.145mil|Location2.X=507.098mil|Location1.Y=1257.929mil|Location2.Y=1272.052mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "C2" (-25.158mm,-10.041mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=471.922mil|Location2.X=519.875mil|Location1.Y=1075.929mil|Location2.Y=1090.052mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=471.922mil|Location2.X=519.875mil|Location1.Y=1075.929mil|Location2.Y=1090.052mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "C3" (-24.833mm,-14.664mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=446.922mil|Location2.X=494.875mil|Location1.Y=1325.929mil|Location2.Y=1340.052mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=446.922mil|Location2.X=494.875mil|Location1.Y=1325.929mil|Location2.Y=1340.052mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "C4" (-25.468mm,-8.314mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=908.922mil|Location2.X=956.875mil|Location1.Y=1358.929mil|Location2.Y=1373.052mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=908.922mil|Location2.X=956.875mil|Location1.Y=1358.929mil|Location2.Y=1373.052mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "C5" (-13.734mm,-7.476mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1099.922mil|Location2.X=1147.875mil|Location1.Y=1285.929mil|Location2.Y=1300.052mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1099.922mil|Location2.X=1147.875mil|Location1.Y=1285.929mil|Location2.Y=1300.052mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "C6" (-8.882mm,-9.33mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=432.799mil|Location2.X=480.752mil|Location1.Y=2571.93mil|Location2.Y=2586.053mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=432.799mil|Location2.X=480.752mil|Location1.Y=2571.93mil|Location2.Y=2586.053mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "C8_MotorDrive-A" (-35.476mm,23.462mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=432.799mil|Location2.X=480.752mil|Location1.Y=3171.93mil|Location2.Y=3186.053mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=432.799mil|Location2.X=480.752mil|Location1.Y=3171.93mil|Location2.Y=3186.053mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "C8_MotorDrive-B" (-35.476mm,38.702mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2676.573mil|Location2.X=2724.527mil|Location1.Y=2497.93mil|Location2.Y=2512.053mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2676.573mil|Location2.X=2724.527mil|Location1.Y=2497.93mil|Location2.Y=2512.053mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "J1_MotorDrive-B" (17.381mm,21.582mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1474.916mil|Location2.X=1522.869mil|Location1.Y=2685.929mil|Location2.Y=2700.052mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1474.916mil|Location2.X=1522.869mil|Location1.Y=2685.929mil|Location2.Y=2700.052mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "MB1" (0.135mm,26.23mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2499.311mil|Location2.X=2547.264mil|Location1.Y=2297.606mil|Location2.Y=2311.729mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2499.311mil|Location2.X=2547.264mil|Location1.Y=2297.606mil|Location2.Y=2311.729mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "R1" (26.916mm,16.367mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=715.914mil|Location2.X=763.867mil|Location1.Y=2008.929mil|Location2.Y=2023.052mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=715.914mil|Location2.X=763.867mil|Location1.Y=2008.929mil|Location2.Y=2023.052mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "R10" (-19.271mm,9.034mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=505.917mil|Location2.X=553.87mil|Location1.Y=2008.929mil|Location2.Y=2023.052mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=505.917mil|Location2.X=553.87mil|Location1.Y=2008.929mil|Location2.Y=2023.052mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "R11" (-24.351mm,9.034mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=77.914mil|Location2.X=125.867mil|Location1.Y=2020.929mil|Location2.Y=2035.052mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=77.914mil|Location2.X=125.867mil|Location1.Y=2020.929mil|Location2.Y=2035.052mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "R12" (-35.476mm,9.339mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=327.914mil|Location2.X=375.867mil|Location1.Y=2020.929mil|Location2.Y=2035.052mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=327.914mil|Location2.X=375.867mil|Location1.Y=2020.929mil|Location2.Y=2035.052mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "R13" (-29.126mm,9.339mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=153.145mil|Location2.X=201.098mil|Location1.Y=1471.929mil|Location2.Y=1486.052mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=153.145mil|Location2.X=201.098mil|Location1.Y=1471.929mil|Location2.Y=1486.052mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "R2" (-32.93mm,-4.605mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=371.922mil|Location2.X=419.875mil|Location1.Y=1508.929mil|Location2.Y=1523.052mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=371.922mil|Location2.X=419.875mil|Location1.Y=1508.929mil|Location2.Y=1523.052mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "R3" (-27.373mm,-3.666mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=53.145mil|Location2.X=101.098mil|Location1.Y=1471.929mil|Location2.Y=1486.052mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=53.145mil|Location2.X=101.098mil|Location1.Y=1471.929mil|Location2.Y=1486.052mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "R4" (-35.47mm,-4.605mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2581.575mil|Location2.X=2629.528mil|Location1.Y=1925.93mil|Location2.Y=1940.053mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2581.575mil|Location2.X=2629.528mil|Location1.Y=1925.93mil|Location2.Y=1940.053mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "R5_MotorDrive-A" (12.301mm,7.053mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1382.799mil|Location2.X=1430.753mil|Location1.Y=3125.93mil|Location2.Y=3140.053mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1382.799mil|Location2.X=1430.753mil|Location1.Y=3125.93mil|Location2.Y=3140.053mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "R5_MotorDrive-B" (-11.346mm,37.533mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=890.922mil|Location2.X=938.875mil|Location1.Y=2008.929mil|Location2.Y=2023.052mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=890.922mil|Location2.X=938.875mil|Location1.Y=2008.929mil|Location2.Y=2023.052mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "R6" (-14.191mm,9.034mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1040.922mil|Location2.X=1088.875mil|Location1.Y=2008.929mil|Location2.Y=2023.052mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1040.922mil|Location2.X=1088.875mil|Location1.Y=2008.929mil|Location2.Y=2023.052mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "R7" (-10.381mm,9.034mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1190.922mil|Location2.X=1238.875mil|Location1.Y=2008.929mil|Location2.Y=2023.052mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1190.922mil|Location2.X=1238.875mil|Location1.Y=2008.929mil|Location2.Y=2023.052mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "R8" (-6.571mm,9.034mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1247.035mil|Location2.X=1294.988mil|Location1.Y=2448.687mil|Location2.Y=2462.81mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1247.035mil|Location2.X=1294.988mil|Location1.Y=2448.687mil|Location2.Y=2462.81mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "U1_MotorDrive-A" (-3.241mm,10.174mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2708.076mil|Location2.X=2756.03mil|Location1.Y=1912.93mil|Location2.Y=1927.053mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2708.076mil|Location2.X=2756.03mil|Location1.Y=1912.93mil|Location2.Y=1927.053mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Text "U1_MotorDrive-B" (18.982mm,6.723mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1018.631mil|Location2.X=1066.585mil|Location1.Y=1900.616mil|Location2.Y=1914.739mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1018.631mil|Location2.X=1066.585mil|Location1.Y=1900.616mil|Location2.Y=1914.739mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-10.177mm,7.045mm)(-9.177mm,7.045mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1018.631mil|Location2.X=1066.585mil|Location1.Y=1945.891mil|Location2.Y=1960.014mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1018.631mil|Location2.X=1066.585mil|Location1.Y=1945.891mil|Location2.Y=1960.014mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-10.177mm,8.195mm)(-9.177mm,8.195mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=991.269mil|Location2.X=1039.222mil|Location1.Y=3023.253mil|Location2.Y=3037.376mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=991.269mil|Location2.X=1039.222mil|Location1.Y=3023.253mil|Location2.Y=3037.376mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-10.372mm,35.06mm)(-10.372mm,36.06mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=945.994mil|Location2.X=993.947mil|Location1.Y=3023.253mil|Location2.Y=3037.376mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=945.994mil|Location2.X=993.947mil|Location1.Y=3023.253mil|Location2.Y=3037.376mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-11.522mm,35.06mm)(-11.522mm,36.06mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=881.915mil|Location2.X=929.868mil|Location1.Y=1295.891mil|Location2.Y=1310.014mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=881.915mil|Location2.X=929.868mil|Location1.Y=1295.891mil|Location2.Y=1310.014mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-13.65mm,-8.315mm)(-12.65mm,-8.315mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=881.915mil|Location2.X=929.868mil|Location1.Y=1250.616mil|Location2.Y=1264.739mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=881.915mil|Location2.X=929.868mil|Location1.Y=1250.616mil|Location2.Y=1264.739mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-13.65mm,-9.465mm)(-12.65mm,-9.465mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=868.631mil|Location2.X=916.585mil|Location1.Y=1900.616mil|Location2.Y=1914.739mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=868.631mil|Location2.X=916.585mil|Location1.Y=1900.616mil|Location2.Y=1914.739mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-13.987mm,7.045mm)(-12.987mm,7.045mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=868.631mil|Location2.X=916.585mil|Location1.Y=1945.891mil|Location2.Y=1960.014mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=868.631mil|Location2.X=916.585mil|Location1.Y=1945.891mil|Location2.Y=1960.014mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-13.987mm,8.195mm)(-12.987mm,8.195mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=668.631mil|Location2.X=716.585mil|Location1.Y=1900.616mil|Location2.Y=1914.739mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=668.631mil|Location2.X=716.585mil|Location1.Y=1900.616mil|Location2.Y=1914.739mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-19.067mm,7.045mm)(-18.067mm,7.045mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=668.631mil|Location2.X=716.585mil|Location1.Y=1945.891mil|Location2.Y=1960.014mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=668.631mil|Location2.X=716.585mil|Location1.Y=1945.891mil|Location2.Y=1960.014mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-19.067mm,8.195mm)(-18.067mm,8.195mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=558.883mil|Location2.X=606.836mil|Location1.Y=973.253mil|Location2.Y=987.376mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=558.883mil|Location2.X=606.836mil|Location1.Y=973.253mil|Location2.Y=987.376mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-21.355mm,-17.51mm)(-21.355mm,-15.51mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=556.915mil|Location2.X=604.868mil|Location1.Y=1012.623mil|Location2.Y=1026.747mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=556.915mil|Location2.X=604.868mil|Location1.Y=1012.623mil|Location2.Y=1026.747mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-21.455mm,-15.51mm)(-21.355mm,-15.51mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=556.915mil|Location2.X=604.868mil|Location1.Y=933.883mil|Location2.Y=948.006mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=556.915mil|Location2.X=604.868mil|Location1.Y=933.883mil|Location2.Y=948.006mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-21.455mm,-17.51mm)(-21.355mm,-17.51mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=545.99mil|Location2.X=593.943mil|Location1.Y=1156.023mil|Location2.Y=1170.146mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=545.99mil|Location2.X=593.943mil|Location1.Y=1156.023mil|Location2.Y=1170.146mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-21.683mm,-12.868mm)(-21.683mm,-10.868mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=544.021mil|Location2.X=591.974mil|Location1.Y=1195.393mil|Location2.Y=1209.516mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=544.021mil|Location2.X=591.974mil|Location1.Y=1195.393mil|Location2.Y=1209.516mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-21.783mm,-10.868mm)(-21.683mm,-10.868mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=544.021mil|Location2.X=591.974mil|Location1.Y=1116.653mil|Location2.Y=1130.776mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=544.021mil|Location2.X=591.974mil|Location1.Y=1116.653mil|Location2.Y=1130.776mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-21.783mm,-12.868mm)(-21.683mm,-12.868mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=534.08mil|Location2.X=582.033mil|Location1.Y=1223.253mil|Location2.Y=1237.376mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=534.08mil|Location2.X=582.033mil|Location1.Y=1223.253mil|Location2.Y=1237.376mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-21.985mm,-11.16mm)(-21.985mm,-9.16mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=534.08mil|Location2.X=582.033mil|Location1.Y=1073.253mil|Location2.Y=1087.376mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=534.08mil|Location2.X=582.033mil|Location1.Y=1073.253mil|Location2.Y=1087.376mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-21.985mm,-14.97mm)(-21.985mm,-12.97mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=532.112mil|Location2.X=580.065mil|Location1.Y=1183.883mil|Location2.Y=1198.006mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=532.112mil|Location2.X=580.065mil|Location1.Y=1183.883mil|Location2.Y=1198.006mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-22.085mm,-11.16mm)(-21.985mm,-11.16mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=532.112mil|Location2.X=580.065mil|Location1.Y=1112.623mil|Location2.Y=1126.747mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=532.112mil|Location2.X=580.065mil|Location1.Y=1112.623mil|Location2.Y=1126.747mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-22.085mm,-12.97mm)(-21.985mm,-12.97mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=532.112mil|Location2.X=580.065mil|Location1.Y=1033.883mil|Location2.Y=1048.006mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=532.112mil|Location2.X=580.065mil|Location1.Y=1033.883mil|Location2.Y=1048.006mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-22.085mm,-14.97mm)(-21.985mm,-14.97mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=532.112mil|Location2.X=580.065mil|Location1.Y=1262.623mil|Location2.Y=1276.747mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=532.112mil|Location2.X=580.065mil|Location1.Y=1262.623mil|Location2.Y=1276.747mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-22.085mm,-9.16mm)(-21.985mm,-9.16mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=468.631mil|Location2.X=516.585mil|Location1.Y=1900.616mil|Location2.Y=1914.739mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=468.631mil|Location2.X=516.585mil|Location1.Y=1900.616mil|Location2.Y=1914.739mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-24.147mm,7.045mm)(-23.147mm,7.045mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=468.631mil|Location2.X=516.585mil|Location1.Y=1945.891mil|Location2.Y=1960.014mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=468.631mil|Location2.X=516.585mil|Location1.Y=1945.891mil|Location2.Y=1960.014mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-24.147mm,8.195mm)(-23.147mm,8.195mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=417.151mil|Location2.X=465.104mil|Location1.Y=1012.623mil|Location2.Y=1026.747mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=417.151mil|Location2.X=465.104mil|Location1.Y=1012.623mil|Location2.Y=1026.747mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-25.005mm,-15.51mm)(-24.905mm,-15.51mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=417.151mil|Location2.X=465.104mil|Location1.Y=933.883mil|Location2.Y=948.006mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=417.151mil|Location2.X=465.104mil|Location1.Y=933.883mil|Location2.Y=948.006mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-25.005mm,-17.51mm)(-24.905mm,-17.51mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=415.183mil|Location2.X=463.136mil|Location1.Y=973.253mil|Location2.Y=987.376mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=415.183mil|Location2.X=463.136mil|Location1.Y=973.253mil|Location2.Y=987.376mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-25.005mm,-17.51mm)(-25.005mm,-15.51mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=404.257mil|Location2.X=452.211mil|Location1.Y=1195.393mil|Location2.Y=1209.516mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=404.257mil|Location2.X=452.211mil|Location1.Y=1195.393mil|Location2.Y=1209.516mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-25.333mm,-10.868mm)(-25.233mm,-10.868mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=404.257mil|Location2.X=452.211mil|Location1.Y=1116.653mil|Location2.Y=1130.776mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=404.257mil|Location2.X=452.211mil|Location1.Y=1116.653mil|Location2.Y=1130.776mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-25.333mm,-12.868mm)(-25.233mm,-12.868mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=402.289mil|Location2.X=450.242mil|Location1.Y=1156.023mil|Location2.Y=1170.146mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=402.289mil|Location2.X=450.242mil|Location1.Y=1156.023mil|Location2.Y=1170.146mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-25.333mm,-12.868mm)(-25.333mm,-10.868mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=392.348mil|Location2.X=440.301mil|Location1.Y=1183.883mil|Location2.Y=1198.006mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=392.348mil|Location2.X=440.301mil|Location1.Y=1183.883mil|Location2.Y=1198.006mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-25.635mm,-11.16mm)(-25.535mm,-11.16mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=390.379mil|Location2.X=438.333mil|Location1.Y=1223.253mil|Location2.Y=1237.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=390.379mil|Location2.X=438.333mil|Location1.Y=1223.253mil|Location2.Y=1237.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-25.635mm,-11.16mm)(-25.635mm,-9.16mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=392.348mil|Location2.X=440.301mil|Location1.Y=1112.623mil|Location2.Y=1126.747mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=392.348mil|Location2.X=440.301mil|Location1.Y=1112.623mil|Location2.Y=1126.747mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-25.635mm,-12.97mm)(-25.535mm,-12.97mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=392.348mil|Location2.X=440.301mil|Location1.Y=1033.883mil|Location2.Y=1048.006mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=392.348mil|Location2.X=440.301mil|Location1.Y=1033.883mil|Location2.Y=1048.006mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-25.635mm,-14.97mm)(-25.535mm,-14.97mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=390.379mil|Location2.X=438.333mil|Location1.Y=1073.253mil|Location2.Y=1087.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=390.379mil|Location2.X=438.333mil|Location1.Y=1073.253mil|Location2.Y=1087.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-25.635mm,-14.97mm)(-25.635mm,-12.97mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=392.348mil|Location2.X=440.301mil|Location1.Y=1262.623mil|Location2.Y=1276.747mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=392.348mil|Location2.X=440.301mil|Location1.Y=1262.623mil|Location2.Y=1276.747mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-25.635mm,-9.16mm)(-25.535mm,-9.16mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=349.631mil|Location2.X=397.585mil|Location1.Y=1445.891mil|Location2.Y=1460.014mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=349.631mil|Location2.X=397.585mil|Location1.Y=1445.891mil|Location2.Y=1460.014mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-27.17mm,-4.505mm)(-26.17mm,-4.505mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=349.631mil|Location2.X=397.585mil|Location1.Y=1400.616mil|Location2.Y=1414.739mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=349.631mil|Location2.X=397.585mil|Location1.Y=1400.616mil|Location2.Y=1414.739mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-27.17mm,-5.655mm)(-26.17mm,-5.655mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2499.631mil|Location2.X=2547.585mil|Location1.Y=2200.616mil|Location2.Y=2214.739mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2499.631mil|Location2.X=2547.585mil|Location1.Y=2200.616mil|Location2.Y=2214.739mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (27.44mm,14.665mm)(28.44mm,14.665mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2499.631mil|Location2.X=2547.585mil|Location1.Y=2245.891mil|Location2.Y=2260.014mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2499.631mil|Location2.X=2547.585mil|Location1.Y=2245.891mil|Location2.Y=2260.014mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (27.44mm,15.815mm)(28.44mm,15.815mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=291.269mil|Location2.X=339.222mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=291.269mil|Location2.X=339.222mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-28.152mm,7.12mm)(-28.152mm,8.12mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=245.994mil|Location2.X=293.947mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=245.994mil|Location2.X=293.947mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-29.302mm,7.12mm)(-29.302mm,8.12mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=130.832mil|Location2.X=178.785mil|Location1.Y=1408.975mil|Location2.Y=1423.099mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=130.832mil|Location2.X=178.785mil|Location1.Y=1408.975mil|Location2.Y=1423.099mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-32.727mm,-5.443mm)(-31.728mm,-5.443mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=130.832mil|Location2.X=178.785mil|Location1.Y=1363.7mil|Location2.Y=1377.823mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=130.832mil|Location2.X=178.785mil|Location1.Y=1363.7mil|Location2.Y=1377.823mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-32.727mm,-6.593mm)(-31.728mm,-6.593mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=41.269mil|Location2.X=89.222mil|Location1.Y=2473.253mil|Location2.Y=2487.376mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=41.269mil|Location2.X=89.222mil|Location1.Y=2473.253mil|Location2.Y=2487.376mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-34.502mm,21.09mm)(-34.502mm,22.09mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=41.269mil|Location2.X=89.222mil|Location1.Y=3073.253mil|Location2.Y=3087.376mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=41.269mil|Location2.X=89.222mil|Location1.Y=3073.253mil|Location2.Y=3087.376mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-34.502mm,36.33mm)(-34.502mm,37.33mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=41.269mil|Location2.X=89.222mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=41.269mil|Location2.X=89.222mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-34.502mm,7.12mm)(-34.502mm,8.12mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=30.832mil|Location2.X=78.785mil|Location1.Y=1408.975mil|Location2.Y=1423.099mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=30.832mil|Location2.X=78.785mil|Location1.Y=1408.975mil|Location2.Y=1423.099mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-35.267mm,-5.443mm)(-34.268mm,-5.443mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=30.832mil|Location2.X=78.785mil|Location1.Y=1363.7mil|Location2.Y=1377.823mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=30.832mil|Location2.X=78.785mil|Location1.Y=1363.7mil|Location2.Y=1377.823mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-35.267mm,-6.593mm)(-34.268mm,-6.593mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=-4.006mil|Location2.X=43.947mil|Location1.Y=2473.253mil|Location2.Y=2487.376mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=-4.006mil|Location2.X=43.947mil|Location1.Y=2473.253mil|Location2.Y=2487.376mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-35.652mm,21.09mm)(-35.652mm,22.09mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=-4.006mil|Location2.X=43.947mil|Location1.Y=3073.253mil|Location2.Y=3087.376mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=-4.006mil|Location2.X=43.947mil|Location1.Y=3073.253mil|Location2.Y=3087.376mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-35.652mm,36.33mm)(-35.652mm,37.33mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=-4.006mil|Location2.X=43.947mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=-4.006mil|Location2.X=43.947mil|Location1.Y=1923.253mil|Location2.Y=1937.377mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-35.652mm,7.12mm)(-35.652mm,8.12mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1168.631mil|Location2.X=1216.585mil|Location1.Y=1900.616mil|Location2.Y=1914.739mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1168.631mil|Location2.X=1216.585mil|Location1.Y=1900.616mil|Location2.Y=1914.739mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-6.367mm,7.045mm)(-5.367mm,7.045mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1168.631mil|Location2.X=1216.585mil|Location1.Y=1945.891mil|Location2.Y=1960.014mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1168.631mil|Location2.X=1216.585mil|Location1.Y=1945.891mil|Location2.Y=1960.014mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-6.367mm,8.195mm)(-5.367mm,8.195mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1073.228mil|Location2.X=1121.181mil|Location1.Y=1222.506mil|Location2.Y=1236.629mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1073.228mil|Location2.X=1121.181mil|Location1.Y=1222.506mil|Location2.Y=1236.629mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-8.791mm,-10.179mm)(-7.791mm,-10.179mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1073.228mil|Location2.X=1121.181mil|Location1.Y=1177.23mil|Location2.Y=1191.353mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1073.228mil|Location2.X=1121.181mil|Location1.Y=1177.23mil|Location2.Y=1191.353mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.5mm) Between Board Edge And Track (-8.791mm,-11.329mm)(-7.791mm,-11.329mm) on Top Overlay </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

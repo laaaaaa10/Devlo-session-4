@@ -1,0 +1,33 @@
+Removed Pin From Net: NetName=VCC 3V3 Pin=R11-1
+Removed Pin From Net: NetName=GND Pin=R13-2
+Change Component Comment : Designator=R14 Old Comment=Res 5M6 1% 0402 New Comment=Res 2k2 1% 0402
+Change Component Designator: OldDesignator=10 NewDesignator=R10
+Change Component Kind : Designator=R11 Old Kind=Standard New Kind=Standard (No BOM)
+Change Component Kind : Designator=R13 Old Kind=Standard New Kind=Standard (No BOM)
+Change Component Kind : Designator=R8 Old Kind=Standard New Kind=Standard (No BOM)
+Change Component Kind : Designator=R9 Old Kind=Standard New Kind=Standard (No BOM)
+Change component parameters: Designator = "R14" ("R14"); Footprint = "R_1005[0402]"; UniqueID = "\AFVKENPE" ("\AFVKENPE")
+Change component parameters (AddParameter): Name = "Code CEGEP"; Value = "RES2.2KSM"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LibRef"; Value = "RES008"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer 1"; Value = "Yageo"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number 1"; Value = "RC0402FR-072K2L"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Working Voltage"; Value = "50V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mounting Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Puissance"; Value = "1/16W"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Revision"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 2"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 1"; Value = "C114762"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 2"; Value = "311-2.20KLRCT-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = "1%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "DNP"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=R11-2
+Added Pin To Net: NetName=VCC 3V3 Pin=R13-1
+Added Pin To Net: NetName=NetR10_2 Pin=R10-2
+Added Pin To Net: NetName=NetR10_2 Pin=R11-1
+Added Pin To Net: NetName=NetR10_2 Pin=U1_MotorDrive-B-10
+Added Net: Name=NetR10_2
+Added Pin To Net: NetName=NetR12_1 Pin=R12-1
+Added Pin To Net: NetName=NetR12_1 Pin=R13-2
+Added Pin To Net: NetName=NetR12_1 Pin=U1_MotorDrive-B-9
+Added Net: Name=NetR12_1
