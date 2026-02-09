@@ -1,0 +1,123 @@
+Added Component: Designator=R1_MotorDrive-A(R_1005[0402])
+Add component (AddParameter): Name = "Code CEGEP"; Value = "RES2.2KSM"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LibRef"; Value = "RES008"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer 1"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "RC0402FR-072K2L"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Working Voltage"; Value = "50V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Puissance"; Value = "1/16W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Revision"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 2"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C114762"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 2"; Value = "311-2.20KLRCT-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "1%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "2k2"; VariantName = "[No Variations]"
+Added Component: Designator=R1_MotorDrive-B(R_1005[0402])
+Add component (AddParameter): Name = "Code CEGEP"; Value = "RES2.2KSM"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LibRef"; Value = "RES008"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer 1"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "RC0402FR-072K2L"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Working Voltage"; Value = "50V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Puissance"; Value = "1/16W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Revision"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 2"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C114762"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 2"; Value = "311-2.20KLRCT-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "1%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "2k2"; VariantName = "[No Variations]"
+Added Component: Designator=R2_MotorDrive-A(R_1005[0402])
+Add component (AddParameter): Name = "Code CEGEP"; Value = "RES2.2KSM"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LibRef"; Value = "RES008"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer 1"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "RC0402FR-072K2L"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Working Voltage"; Value = "50V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Puissance"; Value = "1/16W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Revision"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 2"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C114762"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 2"; Value = "311-2.20KLRCT-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "1%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "DNP"; VariantName = "[No Variations]"
+Added Component: Designator=R2_MotorDrive-B(R_1005[0402])
+Add component (AddParameter): Name = "Code CEGEP"; Value = "RES2.2KSM"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LibRef"; Value = "RES008"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer 1"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "RC0402FR-072K2L"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Working Voltage"; Value = "50V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Puissance"; Value = "1/16W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Revision"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 2"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C114762"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 2"; Value = "311-2.20KLRCT-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "1%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "DNP"; VariantName = "[No Variations]"
+Added Component: Designator=R3_MotorDrive-A(R_1005[0402])
+Add component (AddParameter): Name = "Code CEGEP"; Value = "RES2.2KSM"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LibRef"; Value = "RES008"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer 1"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "RC0402FR-072K2L"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Working Voltage"; Value = "50V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Puissance"; Value = "1/16W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Revision"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 2"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C114762"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 2"; Value = "311-2.20KLRCT-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "1%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "DNP"; VariantName = "[No Variations]"
+Added Component: Designator=R3_MotorDrive-B(R_1005[0402])
+Add component (AddParameter): Name = "Code CEGEP"; Value = "RES2.2KSM"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LibRef"; Value = "RES008"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer 1"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "RC0402FR-072K2L"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Working Voltage"; Value = "50V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Puissance"; Value = "1/16W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Revision"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 2"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C114762"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 2"; Value = "311-2.20KLRCT-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "1%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "DNP"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=VCC 3V3 Pin=R1_MotorDrive-A-1
+Added Pin To Net: NetName=VCC 3V3 Pin=R1_MotorDrive-B-1
+Added Pin To Net: NetName=GND Pin=R2_MotorDrive-A-2
+Added Pin To Net: NetName=GND Pin=R2_MotorDrive-B-2
+Added Pin To Net: NetName=VCC 3V3 Pin=R3_MotorDrive-A-2
+Added Pin To Net: NetName=VCC 3V3 Pin=R3_MotorDrive-B-2
+Added Pin To Net: NetName=NetR1_MotorDrive-A_2 Pin=R1_MotorDrive-A-2
+Added Pin To Net: NetName=NetR1_MotorDrive-A_2 Pin=R2_MotorDrive-A-1
+Added Pin To Net: NetName=NetR1_MotorDrive-A_2 Pin=U1_MotorDrive-A-16
+Added Net: Name=NetR1_MotorDrive-A_2
+Added Pin To Net: NetName=NetR1_MotorDrive-B_2 Pin=R1_MotorDrive-B-2
+Added Pin To Net: NetName=NetR1_MotorDrive-B_2 Pin=R2_MotorDrive-B-1
+Added Pin To Net: NetName=NetR1_MotorDrive-B_2 Pin=U1_MotorDrive-B-16
+Added Net: Name=NetR1_MotorDrive-B_2
+Added Pin To Net: NetName=NetR3_MotorDrive-A_1 Pin=R3_MotorDrive-A-1
+Added Pin To Net: NetName=NetR3_MotorDrive-A_1 Pin=U1_MotorDrive-A-2
+Added Net: Name=NetR3_MotorDrive-A_1
+Added Pin To Net: NetName=NetR3_MotorDrive-B_1 Pin=R3_MotorDrive-B-1
+Added Pin To Net: NetName=NetR3_MotorDrive-B_1 Pin=U1_MotorDrive-B-2
+Added Net: Name=NetR3_MotorDrive-B_1
+Added Member To Class: ClassName=MotorDrive-A Member=Component R1_MotorDrive-A (R1) Res 2k2 1% 0402
+Added Member To Class: ClassName=MotorDrive-B Member=Component R1_MotorDrive-B (R1) Res 2k2 1% 0402
+Added Member To Class: ClassName=MotorDrive-A Member=Component R2_MotorDrive-A (R2) Res 2k2 1% 0402
+Added Member To Class: ClassName=MotorDrive-B Member=Component R2_MotorDrive-B (R2) Res 2k2 1% 0402
+Added Member To Class: ClassName=MotorDrive-A Member=Component R3_MotorDrive-A (R3) Res 2k2 1% 0402
+Added Member To Class: ClassName=MotorDrive-B Member=Component R3_MotorDrive-B (R3) Res 2k2 1% 0402
+Added Member To Class: ClassName=Cegep-tabloid Member=Component R6 Res 2k2 1% 0402
+Added Member To Class: ClassName=Cegep-tabloid Member=Component R7 Res 2k2 1% 0402
+Added Member To Class: ClassName=Cegep-tabloid Member=Component R8 Res 10k 1% 0402
+Added Member To Class: ClassName=Cegep-tabloid Member=Component R10 Res 2k2 1% 0402
+Added Member To Class: ClassName=Cegep-tabloid Member=Component R12 Res 2k2 1% 0402
+Added Member To Class: ClassName=Cegep-tabloid Member=Component R13 Res 2k2 1% 0402
+Added Member To Class: ClassName=Cegep-tabloid Member=Component R14 Res 2k2 1% 0402

@@ -1,0 +1,69 @@
+Removed Pin From Net: NetName=GND Pin=C7_MotorDrive-A-1
+Removed Pin From Net: NetName=IPROP Pin=C7_MotorDrive-A-2
+Removed Pin From Net: NetName=GND Pin=C7_MotorDrive-B-1
+Change Component Footprint: Designator=C7_MotorDrive-A Old Footprint=C_1005[0402] New Footprint=C_2012[0805]
+Change Component Footprint: Designator=C7_MotorDrive-B Old Footprint=C_1005[0402] New Footprint=C_2012[0805]
+Change Component Comment : Designator=C7_MotorDrive-A Old Comment=CAP CER 10nF 50V X7R 0402 New Comment=CAP CER 10uF 25V X5R 0805
+Change Component Comment : Designator=C7_MotorDrive-B Old Comment=CAP CER 10nF 50V X7R 0402 New Comment=CAP CER 10uF 25V X5R 0805
+Change component parameters: Designator = "C7_MotorDrive-A" ("C7"); Footprint = "C_1005[0402]"; UniqueID = "\KDUAQNNO\HSFOEIFF" ("\KDUAQNNO\HSFOEIFF")
+Change component parameters (AddParameter): Name = "Dielectric"; Value = "X5R"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LibRef"; Value = "CAP020"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer 1"; Value = "Samsung"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number 1"; Value = "CL21A106KAYNNNE"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mounting Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Rated Voltage"; Value = "25V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Revision"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 1"; Value = "C86038"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = "10%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C7_MotorDrive-B" ("C7"); Footprint = "C_1005[0402]"; UniqueID = "\XLLCPJYM\HSFOEIFF" ("\XLLCPJYM\HSFOEIFF")
+Change component parameters (AddParameter): Name = "Dielectric"; Value = "X5R"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LibRef"; Value = "CAP020"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer 1"; Value = "Samsung"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number 1"; Value = "CL21A106KAYNNNE"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mounting Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Rated Voltage"; Value = "25V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Revision"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 1"; Value = "C86038"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = "10%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found R_1005[0402]
+Add Component: Footprint Not Found R_1005[0402]
+Add Component: Footprint Not Found R_1005[0402]
+Add Component: Footprint Not Found R_1005[0402]
+Add Component: Footprint Not Found R_1005[0402]
+Add Component: Footprint Not Found R_1005[0402]
+Added Pin To Net: NetName=IPROP Pin=C7_MotorDrive-A-1
+Added Pin To Net: NetName=GND Pin=C7_MotorDrive-A-2
+Added Pin To Net: NetName=GND Pin=C7_MotorDrive-B-2
+Add Pin To Net: Unknown Pin: Pin R1_MotorDrive-A-1
+Add Pin To Net: Unknown Pin: Pin R1_MotorDrive-A-2
+Add Pin To Net: Unknown Pin: Pin R1_MotorDrive-B-1
+Add Pin To Net: Unknown Pin: Pin R1_MotorDrive-B-2
+Add Pin To Net: Unknown Pin: Pin R2_MotorDrive-A-1
+Add Pin To Net: Unknown Pin: Pin R2_MotorDrive-A-2
+Add Pin To Net: Unknown Pin: Pin R2_MotorDrive-B-1
+Add Pin To Net: Unknown Pin: Pin R2_MotorDrive-B-2
+Add Pin To Net: Unknown Pin: Pin R3_MotorDrive-A-1
+Add Pin To Net: Unknown Pin: Pin R3_MotorDrive-A-2
+Add Pin To Net: Unknown Pin: Pin R3_MotorDrive-B-1
+Add Pin To Net: Unknown Pin: Pin R3_MotorDrive-B-2
+Added Pin To Net: NetName=NetC7_MotorDrive-B_1 Pin=C7_MotorDrive-B-1
+Added Pin To Net: NetName=NetC7_MotorDrive-B_1 Pin=R4_MotorDrive-B-1
+Added Pin To Net: NetName=NetC7_MotorDrive-B_1 Pin=U1_MotorDrive-B-1
+Added Net: Name=NetC7_MotorDrive-B_1
+Add Class Member: Failed to add class member : Component R1_MotorDrive-A (R1) Res 2k2 1% 0402
+Add Class Member: Failed to add class member : Component R1_MotorDrive-B (R1) Res 2k2 1% 0402
+Add Class Member: Failed to add class member : Component R2_MotorDrive-A (R2) Res 2k2 1% 0402
+Add Class Member: Failed to add class member : Component R2_MotorDrive-B (R2) Res 2k2 1% 0402
+Add Class Member: Failed to add class member : Component R3_MotorDrive-A (R3) Res 2k2 1% 0402
+Add Class Member: Failed to add class member : Component R3_MotorDrive-B (R3) Res 2k2 1% 0402
+Added Member To Class: ClassName=Cegep-tabloid Member=Component R6 Res 2k2 1% 0402
+Added Member To Class: ClassName=Cegep-tabloid Member=Component R7 Res 2k2 1% 0402
+Added Member To Class: ClassName=Cegep-tabloid Member=Component R8 Res 10k 1% 0402
+Added Member To Class: ClassName=Cegep-tabloid Member=Component R10 Res 2k2 1% 0402
+Added Member To Class: ClassName=Cegep-tabloid Member=Component R12 Res 2k2 1% 0402
+Added Member To Class: ClassName=Cegep-tabloid Member=Component R13 Res 2k2 1% 0402
+Added Member To Class: ClassName=Cegep-tabloid Member=Component R14 Res 2k2 1% 0402
