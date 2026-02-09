@@ -1,0 +1,48 @@
+Add Component: Footprint Not Found C_2012[0805]
+Add Component: Footprint Not Found C_2012[0805]
+Add Component: Footprint Not Found C_2012[0805]
+Add Component: Footprint Not Found C_2012[0805]
+Add Component: Footprint Not Found C_2012[0805]
+Add Component: Footprint Not Found C_2012[0805]
+Add Component: Footprint Not Found C_2012[0805]
+Add Component: Footprint Not Found C_2012[0805]
+Add Component: Footprint Not Found C_1005[0402]
+Add Component: Footprint Not Found C_1005[0402]
+Add Component: Footprint Not Found C_1005[0402]
+Add Component: Footprint Not Found C_1005[0402]
+Add Pin To Net: Unknown Pin: Pin C1_MotorDrive-A-1
+Add Pin To Net: Unknown Pin: Pin C1_MotorDrive-A-2
+Add Pin To Net: Unknown Pin: Pin C1_MotorDrive-B-1
+Add Pin To Net: Unknown Pin: Pin C1_MotorDrive-B-2
+Add Pin To Net: Unknown Pin: Pin C2_MotorDrive-A-1
+Add Pin To Net: Unknown Pin: Pin C2_MotorDrive-A-2
+Add Pin To Net: Unknown Pin: Pin C2_MotorDrive-B-1
+Add Pin To Net: Unknown Pin: Pin C2_MotorDrive-B-2
+Add Pin To Net: Unknown Pin: Pin C3_MotorDrive-A-1
+Add Pin To Net: Unknown Pin: Pin C3_MotorDrive-A-2
+Add Pin To Net: Unknown Pin: Pin C3_MotorDrive-B-1
+Add Pin To Net: Unknown Pin: Pin C3_MotorDrive-B-2
+Add Pin To Net: Unknown Pin: Pin C4_MotorDrive-A-1
+Add Pin To Net: Unknown Pin: Pin C4_MotorDrive-A-2
+Add Pin To Net: Unknown Pin: Pin C4_MotorDrive-B-1
+Add Pin To Net: Unknown Pin: Pin C4_MotorDrive-B-2
+Add Pin To Net: Unknown Pin: Pin C5_MotorDrive-A-1
+Add Pin To Net: Unknown Pin: Pin C5_MotorDrive-A-2
+Add Pin To Net: Unknown Pin: Pin C5_MotorDrive-B-1
+Add Pin To Net: Unknown Pin: Pin C5_MotorDrive-B-2
+Add Pin To Net: Unknown Pin: Pin C6_MotorDrive-A-1
+Add Pin To Net: Unknown Pin: Pin C6_MotorDrive-A-2
+Add Pin To Net: Unknown Pin: Pin C6_MotorDrive-B-1
+Add Pin To Net: Unknown Pin: Pin C6_MotorDrive-B-2
+Add Class Member: Failed to add class member : Component C1_MotorDrive-A (C1) CAP CER 10uF 10V X7R 0805
+Add Class Member: Failed to add class member : Component C1_MotorDrive-B (C1) CAP CER 10uF 10V X7R 0805
+Add Class Member: Failed to add class member : Component C2_MotorDrive-A (C2) CAP CER 10uF 10V X7R 0805
+Add Class Member: Failed to add class member : Component C2_MotorDrive-B (C2) CAP CER 10uF 10V X7R 0805
+Add Class Member: Failed to add class member : Component C3_MotorDrive-A (C3) CAP CER 10uF 10V X7R 0805
+Add Class Member: Failed to add class member : Component C3_MotorDrive-B (C3) CAP CER 10uF 10V X7R 0805
+Add Class Member: Failed to add class member : Component C4_MotorDrive-A (C4) CAP CER 10uF 10V X7R 0805
+Add Class Member: Failed to add class member : Component C4_MotorDrive-B (C4) CAP CER 10uF 10V X7R 0805
+Add Class Member: Failed to add class member : Component C5_MotorDrive-A (C5) CAP CER 100nF 50V 0402
+Add Class Member: Failed to add class member : Component C5_MotorDrive-B (C5) CAP CER 100nF 50V 0402
+Add Class Member: Failed to add class member : Component C6_MotorDrive-A (C6) CAP CER 100nF 50V 0402
+Add Class Member: Failed to add class member : Component C6_MotorDrive-B (C6) CAP CER 100nF 50V 0402
