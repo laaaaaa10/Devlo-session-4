@@ -1,0 +1,45 @@
+Removed Pin From Net: NetName=IPROP Pin=C7_MotorDrive-A-1
+Removed Pin From Net: NetName=GND Pin=C7_MotorDrive-A-2
+Removed Pin From Net: NetName=GND Pin=C7_MotorDrive-B-2
+Change Component Footprint: Designator=C7_MotorDrive-A Old Footprint=C_2012[0805] New Footprint=C_1005[0402]
+Change Component Footprint: Designator=C7_MotorDrive-B Old Footprint=C_2012[0805] New Footprint=C_1005[0402]
+Change Component Comment : Designator=C7_MotorDrive-A Old Comment=CAP CER 10uF 25V X5R 0805 New Comment=CAP CER 10nF 50V X7R 0402
+Change Component Comment : Designator=C7_MotorDrive-B Old Comment=CAP CER 10uF 25V X5R 0805 New Comment=CAP CER 10nF 50V X7R 0402
+Change component parameters: Designator = "C7_MotorDrive-A" ("C7"); Footprint = "C_2012[0805]"; UniqueID = "\KDUAQNNO\KABHRHGJ" ("\KDUAQNNO\KABHRHGJ")
+Change component parameters (AddParameter): Name = "Dielectric"; Value = "X7R"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LibRef"; Value = "CAP017"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer 1"; Value = "Yageo"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number 1"; Value = "CC0402KRX7R9BB103"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mounting Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Rated Voltage"; Value = "50V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Revision"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 1"; Value = "C60133"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = "10%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "10nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C7_MotorDrive-B" ("C7"); Footprint = "C_2012[0805]"; UniqueID = "\XLLCPJYM\KABHRHGJ" ("\XLLCPJYM\KABHRHGJ")
+Change component parameters (AddParameter): Name = "Dielectric"; Value = "X7R"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LibRef"; Value = "CAP017"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer 1"; Value = "Yageo"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number 1"; Value = "CC0402KRX7R9BB103"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mounting Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Rated Voltage"; Value = "50V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Revision"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 1"; Value = "C60133"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = "10%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "10nF"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C7_MotorDrive-A-1
+Added Pin To Net: NetName=IPROP Pin=C7_MotorDrive-A-2
+Added Pin To Net: NetName=GND Pin=C7_MotorDrive-B-1
+Added Pin To Net: NetName=NetC7_MotorDrive-B_2 Pin=C7_MotorDrive-B-2
+Added Pin To Net: NetName=NetC7_MotorDrive-B_2 Pin=R4_MotorDrive-B-1
+Added Pin To Net: NetName=NetC7_MotorDrive-B_2 Pin=U1_MotorDrive-B-1
+Added Net: Name=NetC7_MotorDrive-B_2
+Added Member To Class: ClassName=Cegep-tabloid Member=Component R6 Res 2k2 1% 0402
+Added Member To Class: ClassName=Cegep-tabloid Member=Component R7 Res 2k2 1% 0402
+Added Member To Class: ClassName=Cegep-tabloid Member=Component R8 Res 10k 1% 0402
+Added Member To Class: ClassName=Cegep-tabloid Member=Component R10 Res 2k2 1% 0402
+Added Member To Class: ClassName=Cegep-tabloid Member=Component R12 Res 2k2 1% 0402
+Added Member To Class: ClassName=Cegep-tabloid Member=Component R13 Res 2k2 1% 0402
+Added Member To Class: ClassName=Cegep-tabloid Member=Component R14 Res 2k2 1% 0402
