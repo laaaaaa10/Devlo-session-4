@@ -1,0 +1,42 @@
+Change Component Designator: OldDesignator=C1_MotorDrive-A NewDesignator=C1_A
+Change Component Designator: OldDesignator=C1_MotorDrive-B NewDesignator=C1_B
+Change Component Designator: OldDesignator=C2_MotorDrive-A NewDesignator=C2_A
+Change Component Designator: OldDesignator=C2_MotorDrive-B NewDesignator=C2_B
+Change Component Designator: OldDesignator=C3_MotorDrive-A NewDesignator=C3_A
+Change Component Designator: OldDesignator=C3_MotorDrive-B NewDesignator=C3_B
+Change Component Designator: OldDesignator=C4_MotorDrive-A NewDesignator=C4_A
+Change Component Designator: OldDesignator=C4_MotorDrive-B NewDesignator=C4_B
+Change Component Designator: OldDesignator=C5_MotorDrive-A NewDesignator=C5_A
+Change Component Designator: OldDesignator=C5_MotorDrive-B NewDesignator=C5_B
+Change Component Designator: OldDesignator=C6_MotorDrive-A NewDesignator=C6_A
+Change Component Designator: OldDesignator=C6_MotorDrive-B NewDesignator=C6_B
+Change Component Designator: OldDesignator=C7_MotorDrive-A NewDesignator=C7_A
+Change Component Designator: OldDesignator=C7_MotorDrive-B NewDesignator=C7_B
+Change Component Designator: OldDesignator=J1_MotorDrive-A NewDesignator=J1_A
+Change Component Designator: OldDesignator=J1_MotorDrive-B NewDesignator=J1_B
+Change Component Designator: OldDesignator=R1_MotorDrive-A NewDesignator=R1_A
+Change Component Designator: OldDesignator=R1_MotorDrive-B NewDesignator=R1_B
+Change Component Designator: OldDesignator=R2_MotorDrive-A NewDesignator=R2_A
+Change Component Designator: OldDesignator=R2_MotorDrive-B NewDesignator=R2_B
+Change Component Designator: OldDesignator=R3_MotorDrive-A NewDesignator=R3_A
+Change Component Designator: OldDesignator=R3_MotorDrive-B NewDesignator=R3_B
+Change Component Designator: OldDesignator=R4_MotorDrive-A NewDesignator=R4_A
+Change Component Designator: OldDesignator=R4_MotorDrive-B NewDesignator=R4_B
+Change Component Designator: OldDesignator=U1_MotorDrive-A NewDesignator=U1_A
+Change Component Designator: OldDesignator=U1_MotorDrive-B NewDesignator=U1_B
+Change Net Name : Old Net Name=NetC7_MotorDrive-B_2 New Net Name=NetC7_B_2
+Change Net Name : Old Net Name=NetR1_MotorDrive-A_2 New Net Name=NetR1_A_2
+Change Net Name : Old Net Name=NetR1_MotorDrive-B_2 New Net Name=NetR1_B_2
+Change Net Name : Old Net Name=NetR3_MotorDrive-A_1 New Net Name=NetR3_A_1
+Change Net Name : Old Net Name=NetR3_MotorDrive-B_1 New Net Name=NetR3_B_1
+Change Net Name : Old Net Name=NetU1_MotorDrive-B_3 New Net Name=NetU1_B_3
+Change Net Name : Old Net Name=NetU1_MotorDrive-B_12 New Net Name=NetU1_B_12
+Change Net Name : Old Net Name=NetU1_MotorDrive-B_13 New Net Name=NetU1_B_13
+Change Net Name : Old Net Name=out1_MotorDrive-A New Net Name=out1_A
+Change Net Name : Old Net Name=out1_MotorDrive-B New Net Name=out1_B
+Change Net Name : Old Net Name=out2_MotorDrive-A New Net Name=out2_A
+Change Net Name : Old Net Name=out2_MotorDrive-B New Net Name=out2_B
+Added Member To Class: ClassName=Cegep-tabloid Member=Component C8 CAP EL 100uF 63V 10MM
+Added Rule: Name=Schematic Supply Nets
+Added Rule: Name=Schematic Supply Nets_1
+Added Rule: Name=Schematic Supply Nets_2
