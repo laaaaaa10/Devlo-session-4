@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
 PCB File : U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc
 Date     : 2026-02-12
-Time     : 11:44:36
+Time     : 15:36:01
 
 Processing Rule : Clearance Constraint (Gap=0.15mm) (All),(All)
 Rule Violations :0
@@ -10,64 +10,8 @@ Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
 Rule Violations :0
 
 Processing Rule : Un-Routed Net Constraint ( (All) )
-   Violation between Un-Routed Net Constraint: Net VM Between Pad C2_MotorDrive-A-1(8.091mm,-0.835mm) on Top Layer And Pad C1_MotorDrive-A-1(10.05mm,-0.85mm) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net VM Between Pad C1_MotorDrive-A-1(10.05mm,-0.85mm) on Top Layer And Pad C4_MotorDrive-A-1(10.084mm,-0.806mm) on Bottom Layer 
-   Violation between Un-Routed Net Constraint: Net VM Between Pad C1_MotorDrive-A-1(10.05mm,-0.85mm) on Top Layer And Track (12.794mm,-9.958mm)(12.924mm,-9.829mm) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C2_MotorDrive-A-2(8.091mm,-2.735mm) on Top Layer And Pad C1_MotorDrive-A-2(10.05mm,-2.75mm) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C1_MotorDrive-A-2(10.05mm,-2.75mm) on Top Layer And Pad C4_MotorDrive-A-2(10.084mm,-2.706mm) on Bottom Layer 
-   Violation between Un-Routed Net Constraint: Net VM Between Pad C1_MotorDrive-B-1(21.539mm,-1.021mm) on Bottom Layer And Pad C2_MotorDrive-B-1(23.673mm,-0.97mm) on Bottom Layer 
-   Violation between Un-Routed Net Constraint: Net VM Between Pad C1_MotorDrive-B-1(21.539mm,-1.021mm) on Bottom Layer And Track (21.595mm,-1.32mm)(21.595mm,-1.005mm) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C1_MotorDrive-B-2(21.539mm,-2.921mm) on Bottom Layer And Pad C4_MotorDrive-B-2(21.752mm,-2.819mm) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net VM Between Pad C3_MotorDrive-A-1(8.085mm,-0.834mm) on Bottom Layer And Pad C2_MotorDrive-A-1(8.091mm,-0.835mm) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net VM Between Pad C6_MotorDrive-B-1(6.452mm,-0.584mm) on Top Layer [Unplated] And Pad C2_MotorDrive-A-1(8.091mm,-0.835mm) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C3_MotorDrive-A-2(8.085mm,-2.734mm) on Bottom Layer And Pad C2_MotorDrive-A-2(8.091mm,-2.735mm) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad U1_MotorDrive-A-17(4.697mm,-3.339mm) on Top Layer And Pad C2_MotorDrive-A-2(8.091mm,-2.735mm) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net VM Between Pad C3_MotorDrive-B-1(23.584mm,-0.905mm) on Top Layer And Pad C2_MotorDrive-B-1(23.673mm,-0.97mm) on Bottom Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C3_MotorDrive-B-2(23.584mm,-2.805mm) on Top Layer And Pad C2_MotorDrive-B-2(23.673mm,-2.87mm) on Bottom Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C4_MotorDrive-B-2(21.752mm,-2.819mm) on Top Layer And Pad C3_MotorDrive-B-2(23.584mm,-2.805mm) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net VM Between Pad C4_MotorDrive-A-1(10.084mm,-0.806mm) on Bottom Layer And Pad J2-2(10.894mm,4.33mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net VM Between Pad C4_MotorDrive-A-1(10.084mm,-0.806mm) on Bottom Layer And Track (19.013mm,-1.766mm)(19.025mm,-1.778mm) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C4_MotorDrive-A-2(10.084mm,-2.706mm) on Bottom Layer And Track (15.316mm,-2.946mm)(15.443mm,-3.073mm) on Bottom Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C7_MotorDrive-B-1(21.05mm,-6.218mm) on Top Layer [Unplated] And Pad C4_MotorDrive-B-2(21.752mm,-2.819mm) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net VCC 3V3 Between Pad R11-1(2.255mm,-3.212mm) on Bottom Layer [Unplated] And Pad C5_MotorDrive-A-1(4.009mm,-3.367mm) on Bottom Layer [Unplated] 
-   Violation between Un-Routed Net Constraint: Net VCC 3V3 Between Pad C5_MotorDrive-A-1(4.009mm,-3.367mm) on Bottom Layer [Unplated] And Pad R8-1(5.272mm,-1.753mm) on Bottom Layer [Unplated] 
-   Violation between Un-Routed Net Constraint: Net VCC 3V3 Between Pad C5_MotorDrive-A-1(4.009mm,-3.367mm) on Bottom Layer [Unplated] And Track (5.461mm,-8.127mm)(5.493mm,-8.095mm) on Bottom Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C5_MotorDrive-A-2(4.009mm,-4.267mm) on Bottom Layer [Unplated] And Pad U1_MotorDrive-A-17(4.697mm,-3.339mm) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C5_MotorDrive-B-2(17.628mm,-3.073mm) on Bottom Layer [Unplated] And Pad U1_MotorDrive-B-17(18.263mm,-3.353mm) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad U1_MotorDrive-B-7(18.013mm,-1.862mm) on Top Layer And Pad C6_MotorDrive-A-2(19.172mm,-0.662mm) on Top Layer [Unplated] 
-   Violation between Un-Routed Net Constraint: Net VM Between Pad U1_MotorDrive-A-5(5.447mm,-1.849mm) on Top Layer And Pad C6_MotorDrive-B-1(6.452mm,-0.584mm) on Top Layer [Unplated] 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad U1_MotorDrive-A-7(4.447mm,-1.849mm) on Top Layer And Pad C6_MotorDrive-B-2(5.552mm,-0.584mm) on Top Layer [Unplated] 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C7_MotorDrive-A-1(6.225mm,-9.375mm) on Top Layer [Unplated] And Pad C8-1(12.701mm,-17.321mm) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C7_MotorDrive-A-1(6.225mm,-9.375mm) on Top Layer [Unplated] And Pad R2_MotorDrive-A-2(6.564mm,-8.129mm) on Bottom Layer [Unplated] 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad R4_MotorDrive-B-2(18.825mm,-5.1mm) on Bottom Layer [Unplated] And Pad C7_MotorDrive-B-1(21.05mm,-6.218mm) on Top Layer [Unplated] 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C8-1(12.701mm,-17.321mm) on Top Layer And Pad MB1-9(24.13mm,-27.94mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad J2-1(14.394mm,4.33mm) on Multi-Layer And Pad R16-2(14.642mm,-0.512mm) on Bottom Layer [Unplated] 
-   Violation between Un-Routed Net Constraint: Net GND Between Via (12.421mm,9.322mm) from Top Layer to Bottom Layer And Pad J2-1(14.394mm,4.33mm) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad MB1-8(1.27mm,-27.94mm) on Multi-Layer And Pad R4_MotorDrive-A-2(2.15mm,-8.375mm) on Bottom Layer [Unplated] 
-   Violation between Un-Routed Net Constraint: Net VCC 3V3 Between Pad R1_MotorDrive-A-1(5.493mm,-8.095mm) on Bottom Layer [Unplated] And Pad R3_MotorDrive-A-2(8.6mm,-6.8mm) on Bottom Layer [Unplated] 
-   Violation between Un-Routed Net Constraint: Net VCC 3V3 Between Pad R7-1(18.55mm,-20.346mm) on Bottom Layer [Unplated] And Pad R1_MotorDrive-B-1(20.655mm,-8.423mm) on Bottom Layer [Unplated] 
-   Violation between Un-Routed Net Constraint: Net VCC 3V3 Between Pad R1_MotorDrive-B-1(20.655mm,-8.423mm) on Bottom Layer [Unplated] And Track (22.976mm,-6.051mm)(23.078mm,-5.95mm) on Bottom Layer 
-   Violation between Un-Routed Net Constraint: Net VCC 3V3 Between Pad R10-1(1.374mm,-1.74mm) on Bottom Layer [Unplated] And Pad R11-1(2.255mm,-3.212mm) on Bottom Layer [Unplated] 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad R12-2(1.361mm,-0.664mm) on Bottom Layer [Unplated] And Track (2.279mm,-4.343mm)(2.356mm,-4.267mm) on Bottom Layer 
-   Violation between Un-Routed Net Constraint: Net VCC 3V3 Between Pad R14-1(14.634mm,-1.648mm) on Bottom Layer [Unplated] And Track (15.487mm,-4.166mm)(15.588mm,-4.064mm) on Bottom Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad R16-2(14.642mm,-0.512mm) on Bottom Layer [Unplated] And Track (15.316mm,-2.946mm)(15.443mm,-3.073mm) on Bottom Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad R4_MotorDrive-A-2(2.15mm,-8.375mm) on Bottom Layer [Unplated] And Pad R2_MotorDrive-A-2(6.564mm,-8.129mm) on Bottom Layer [Unplated] 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad R4_MotorDrive-B-2(18.825mm,-5.1mm) on Bottom Layer [Unplated] And Pad R2_MotorDrive-B-2(19.42mm,-8.44mm) on Bottom Layer [Unplated] 
-   Violation between Un-Routed Net Constraint: Unplated Pad R3_MotorDrive-A-2(8.6mm,-6.8mm) on Bottom Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad R4_MotorDrive-A-2(2.15mm,-8.375mm) on Bottom Layer [Unplated] And Track (2.279mm,-4.343mm)(2.356mm,-4.267mm) on Bottom Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad U1_MotorDrive-B-17(18.263mm,-3.353mm) on Top Layer And Pad R4_MotorDrive-B-2(18.825mm,-5.1mm) on Bottom Layer [Unplated] 
-   Violation between Un-Routed Net Constraint: Net VCC 3V3 Between Pad R5-1(3.95mm,-14.475mm) on Bottom Layer [Unplated] And Pad R9-1(3.975mm,-13.4mm) on Bottom Layer [Unplated] 
-   Violation between Un-Routed Net Constraint: Net VCC 3V3 Between Pad R7-1(18.55mm,-20.346mm) on Bottom Layer [Unplated] And Pad R6-1(18.55mm,-22.7mm) on Bottom Layer [Unplated] 
-   Violation between Un-Routed Net Constraint: Net FAULT Between Pad R8-2(6.172mm,-1.753mm) on Bottom Layer [Unplated] And Pad U1_MotorDrive-A-4(6.187mm,-2.589mm) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net VCC 3V3 Between Pad R9-1(3.975mm,-13.4mm) on Bottom Layer [Unplated] And Track (5.461mm,-8.127mm)(5.493mm,-8.095mm) on Bottom Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad U1_MotorDrive-A-7(4.447mm,-1.849mm) on Top Layer And Pad U1_MotorDrive-A-17(4.697mm,-3.339mm) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net FAULT Between Pad U1_MotorDrive-A-4(6.187mm,-2.589mm) on Top Layer And Track (19.753mm,-2.603mm)(20.192mm,-2.603mm) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad U1_MotorDrive-B-7(18.013mm,-1.862mm) on Top Layer And Pad U1_MotorDrive-B-17(18.263mm,-3.353mm) on Top Layer 
    Violation between Un-Routed Net Constraint: Split Plane  (No Net) on Int1 (GND) Dead Copper - Net Not Assigned.
-   Violation between Un-Routed Net Constraint: Track (15.487mm,-4.166mm)(15.588mm,-4.064mm) on Bottom Layer 
-   Violation between Un-Routed Net Constraint: Net VCC 3V3 Between Track (17.628mm,-3.973mm)(17.693mm,-4.039mm) on Bottom Layer And Track (22.976mm,-6.051mm)(23.078mm,-5.95mm) on Bottom Layer 
-   Violation between Un-Routed Net Constraint: Net VM Between Track (20.015mm,-1.346mm)(20.015mm,-0.718mm) on Top Layer And Track (21.595mm,-1.32mm)(21.595mm,-1.005mm) on Top Layer 
-Rule Violations :57
+Rule Violations :1
 
 Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
 Rule Violations :0
@@ -75,7 +19,7 @@ Rule Violations :0
 Processing Rule : Width Constraint (Min=0.15mm) (Max=5mm) (Preferred=0.2mm) (All)
 Rule Violations :0
 
-Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.15mm) (Entries=4) (All)
 Rule Violations :0
 
 Processing Rule : Hole Size Constraint (Min=0.2mm) (Max=5mm) (All)
@@ -85,7 +29,10 @@ Processing Rule : Hole To Hole Clearance (Gap=0.3mm) (All),(All)
 Rule Violations :0
 
 Processing Rule : Minimum Solder Mask Sliver (Gap=0.075mm) (All),(All)
-Rule Violations :0
+   Violation between Minimum Solder Mask Sliver Constraint: (0.068mm < 0.075mm) Between Pad C8-2(12.701mm,-8.521mm) on Top Layer And Via (14.27mm,-6.41mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.068mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.073mm < 0.075mm) Between Pad R3_A-1(8.6mm,-5.9mm) on Bottom Layer And Via (8.6mm,-6.775mm) from Top Layer to Bottom Layer [Bottom Solder] Mask Sliver [0.073mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.013mm < 0.075mm) Between Via (16.071mm,-10.988mm) from Top Layer to Bottom Layer And Via (16.77mm,-11.41mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.013mm] / [Bottom Solder] Mask Sliver [0.013mm]
+Rule Violations :3
 
 Processing Rule : Silk To Solder Mask (Clearance=0mm) (IsPad),(All)
 Rule Violations :0
@@ -94,8 +41,7 @@ Processing Rule : Silk to Silk (Clearance=0mm) (All),(All)
 Rule Violations :0
 
 Processing Rule : Net Antennae (Tolerance=0mm) (All)
-   Violation between Net Antennae: Via (12.421mm,9.322mm) from Top Layer to Bottom Layer 
-Rule Violations :1
+Rule Violations :0
 
 Processing Rule : Board Clearance Constraint (Gap=0mm) (All)
    Violation between Board Outline Clearance(Outline Edge): (0.445mm < 0.5mm) Between Board Edge And Pad MB1-1(1.27mm,-10.16mm) on Multi-Layer 
@@ -115,33 +61,20 @@ Processing Rule : Board Clearance Constraint (Gap=0mm) (All)
    Violation between Board Outline Clearance(Outline Edge): (0.445mm < 0.5mm) Between Board Edge And Pad MB1-8(1.27mm,-27.94mm) on Multi-Layer 
    Violation between Board Outline Clearance(Outline Edge): (0.445mm < 0.5mm) Between Board Edge And Pad MB1-9(24.13mm,-27.94mm) on Multi-Layer 
    Violation between Board Outline Clearance(Outline Edge): (0.483mm < 0.5mm) Between Board Edge And Text "Board Name" (7.239mm,-31.267mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "C1_MotorDrive-A" (9.228mm,1.11mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "C2_MotorDrive-A" (7.272mm,1.135mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "C3_MotorDrive-A" (-12.929mm,-4.707mm) on Bottom Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "C3_MotorDrive-B" (22.766mm,1.059mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "C4_MotorDrive-A" (-10.929mm,-4.669mm) on Bottom Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "C4_MotorDrive-B" (42.766mm,-4.782mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "C5_MotorDrive-A" (25.461mm,-1.946mm) on Bottom Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "C5_MotorDrive-B" (39.073mm,-1.659mm) on Bottom Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "C6_MotorDrive-A" (19.032mm,1.008mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "C6_MotorDrive-B" (5.418mm,1.084mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "C7_MotorDrive-A" (5.824mm,-7.069mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "C7_MotorDrive-B" (19.998mm,-4.555mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (0.022mm < 0.5mm) Between Board Edge And Text "J1_MotorDrive-A" (0.795mm,8.933mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "J1_MotorDrive-B" (17.331mm,8.984mm) on Top Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "C3_A" (-4.803mm,-4.707mm) on Bottom Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "C3_B" (22.766mm,1.059mm) on Top Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "C4_A" (-2.804mm,-4.669mm) on Bottom Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "C4_B" (34.641mm,-4.782mm) on Top Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "C6_A" (19.769mm,0.729mm) on Top Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "C7_B" (19.972mm,-4.605mm) on Top Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (0.022mm < 0.5mm) Between Board Edge And Text "J1_A" (0.795mm,8.933mm) on Top Overlay 
    Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "MB1" (0.135mm,26.23mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "R1_MotorDrive-A" (5.901mm,-5.672mm) on Bottom Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "R1_MotorDrive-B" (21.039mm,-6.002mm) on Bottom Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (0.314mm < 0.5mm) Between Board Edge And Text "R1_A" (5.901mm,-5.672mm) on Bottom Overlay 
    Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "R10" (2.522mm,-0.338mm) on Bottom Overlay 
    Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "R11" (2.522mm,-1.811mm) on Bottom Overlay 
    Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "R12" (2.522mm,0.754mm) on Bottom Overlay 
    Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "R13" (2.548mm,-2.929mm) on Bottom Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "R2_MotorDrive-A" (6.967mm,-5.698mm) on Bottom Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "R2_MotorDrive-B" (19.82mm,-6.002mm) on Bottom Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "R3_MotorDrive-A" (8.999mm,-4.377mm) on Bottom Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "R4_MotorDrive-B" (40.394mm,-3.437mm) on Bottom Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "U1_MotorDrive-A" (-2.809mm,3.429mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "U1_MotorDrive-B" (16.315mm,-0.135mm) on Top Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.5mm) Between Board Edge And Text "U1_A" (-2.809mm,11.554mm) on Top Overlay 
    Violation between Board Outline Clearance(Outline Edge): (0.424mm < 0.5mm) Between Board Edge And Track (0.5mm,-11.43mm)(5.156mm,-11.43mm) on Top Overlay 
    Violation between Board Outline Clearance(Outline Edge): (0.424mm < 0.5mm) Between Board Edge And Track (0.5mm,-11.43mm)(5.156mm,-11.43mm) on Top Overlay 
    Violation between Board Outline Clearance(Outline Edge): (0.424mm < 0.5mm) Between Board Edge And Track (0.5mm,-11.43mm)(6.198mm,-11.43mm) on Bottom Overlay 
@@ -206,12 +139,12 @@ Processing Rule : Board Clearance Constraint (Gap=0mm) (All)
    Violation between Board Outline Clearance(Outline Edge): (0.424mm < 0.5mm) Between Board Edge And Track (20.244mm,-26.67mm)(24.9mm,-26.67mm) on Top Overlay 
    Violation between Board Outline Clearance(Outline Edge): (0.277mm < 0.5mm) Between Board Edge And Track (20.827mm,-29.21mm)(24.9mm,-29.21mm) on Top Overlay 
    Violation between Board Outline Clearance(Outline Edge): (0.424mm < 0.5mm) Between Board Edge And Track (20.828mm,-8.89mm)(24.9mm,-8.89mm) on Top Overlay 
-Rule Violations :108
+Rule Violations :95
 
 Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
 Rule Violations :0
 
 
-Violations Detected : 166
+Violations Detected : 99
 Waived Violations : 0
 Time Elapsed        : 00:00:00
