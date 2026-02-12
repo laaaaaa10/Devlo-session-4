@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
 PCB File : U:\Session 4\Devlo-session-4\Lab 2\Pcb1.PcbDoc
 Date     : 2026-02-12
-Time     : 16:10:21
+Time     : 17:45:41
 
 Processing Rule : Clearance Constraint (Gap=0.15mm) (All),(All)
 Rule Violations :0
@@ -10,7 +10,15 @@ Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
 Rule Violations :0
 
 Processing Rule : Un-Routed Net Constraint ( (All) )
-Rule Violations :0
+   Violation between Un-Routed Net Constraint: Net VCC 3V3 Between Pad MB1-6(1.27mm,-22.86mm) on Multi-Layer And Track (3.931mm,-14.672mm)(6.195mm,-14.672mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net VCC 3V3 Between Pad R7-1(18.55mm,-20.346mm) on Bottom Layer [Unplated] And Via (20.686mm,-8.424mm) from Top Layer to Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net VCC 3V3 Between Track (17.362mm,-4.239mm)(17.628mm,-3.973mm) on Bottom Layer And Via (22.98mm,-5.995mm) from Top Layer to Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net VCC 3V3 Between Track (4.009mm,-3.367mm)(4.009mm,-3.287mm) on Bottom Layer And Track (3.798mm,-8.127mm)(5.461mm,-8.127mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net VCC 3V3 Between Track (3.798mm,-8.127mm)(5.461mm,-8.127mm) on Bottom Layer And Track (8.6mm,-6.8mm)(8.6mm,-6.8mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net VCC 3V3 Between Track (3.924mm,-13.216mm)(6.188mm,-13.216mm) on Bottom Layer And Track (3.931mm,-14.672mm)(6.195mm,-14.672mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net VCC 3V3 Between Via (20.686mm,-8.424mm) from Top Layer to Bottom Layer And Via (22.98mm,-5.995mm) from Top Layer to Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net VCC 3V3 Between Via (3.65mm,-11.3mm) from Top Layer to Bottom Layer And Via (3.939mm,-14.613mm) from Top Layer to Bottom Layer 
+Rule Violations :8
 
 Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
 Rule Violations :0
@@ -37,15 +45,50 @@ Processing Rule : Silk to Silk (Clearance=0mm) (All),(All)
 Rule Violations :0
 
 Processing Rule : Net Antennae (Tolerance=0mm) (All)
-Rule Violations :0
+   Violation between Net Antennae: Via (20.686mm,-8.424mm) from Top Layer to Bottom Layer 
+Rule Violations :1
 
 Processing Rule : Board Clearance Constraint (Gap=0mm) (All)
-Rule Violations :0
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK1-1(25.936mm,-23.352mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK1-2(25.936mm,-24.352mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK1-3(25.936mm,-25.352mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK1-4(25.936mm,-26.352mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK1-5(25.936mm,-27.352mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK1-6(25.936mm,-28.352mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK2-1(-0.341mm,-30.831mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK2-2(-0.341mm,-29.831mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK2-3(-0.341mm,-28.831mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK2-4(-0.341mm,-27.831mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK2-5(-0.341mm,-26.831mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK2-6(-0.341mm,-25.831mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK3-1(-0.361mm,3.51mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK3-2(-0.361mm,4.51mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK3-3(-0.361mm,5.51mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK3-4(-0.361mm,6.51mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK3-5(-0.361mm,7.51mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK3-6(-0.361mm,8.51mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK4-1(25.84mm,7.957mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK4-2(25.84mm,6.957mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK4-3(25.84mm,5.957mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK4-4(25.84mm,4.957mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK4-5(25.84mm,3.957mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad BRK4-6(25.84mm,2.957mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad Fid1-1(29.843mm,5.58mm) on Bottom Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad Fid2-1(-4.321mm,-28.194mm) on Bottom Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad Fid3-1(-4.315mm,6.101mm) on Bottom Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad Fid4-1(29.843mm,5.58mm) on Top Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad Fid5-1(-4.315mm,6.101mm) on Top Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad Fid6-1(-4.321mm,-28.194mm) on Top Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad MH1-1(30.4mm,-37mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad MH2-1(-4.875mm,-37mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad MH3-1(-4.875mm,15.9mm) on Multi-Layer 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Pad MH4-1(30.4mm,15.9mm) on Multi-Layer 
+Rule Violations :34
 
 Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
 Rule Violations :0
 
 
-Violations Detected : 0
+Violations Detected : 43
 Waived Violations : 0
-Time Elapsed        : 00:00:00
+Time Elapsed        : 00:00:01
