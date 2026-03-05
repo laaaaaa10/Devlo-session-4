@@ -55,23 +55,6 @@ ReleaseFolderPath=[OutputPath]
 ReleaseZipPath=[OutputPath][ProjectName].zip
 
 [Document1]
-DocumentPath=C:\Users\2436653\Downloads\TEP_243-Altium_Library.PcbLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=PGPYFEPO
-
-[Document2]
 DocumentPath=Librairies\TEP_243-Altium_Library.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -88,7 +71,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=NKEQSCNM
 
-[Document3]
+[Document2]
 DocumentPath=Librairies\TEP_243-Altium_Library.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -105,7 +88,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QKERWZYL
 
-[Document4]
+[Document3]
 DocumentPath=Librairies\mikroBUS_socket_standard.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -122,7 +105,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QYBCVPHW
 
-[Document5]
+[Document4]
 DocumentPath=Librairies\mikroBUS_socket_standard.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -139,7 +122,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=RTOJUPYP
 
-[Document6]
+[Document5]
 DocumentPath=Librairies\mikroBUS_Add-on_standard.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -156,7 +139,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=MKYDYDTN
 
-[Document7]
+[Document6]
 DocumentPath=Librairies\mikroBUS_Add-on_standard.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -173,7 +156,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=YWNMMQBP
 
-[Document8]
+[Document7]
 DocumentPath=Job_FabFiles.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -190,14 +173,14 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document9]
-DocumentPath=Cegep-tabloid.schdot
+[Document8]
+DocumentPath=Cegep-tabloid.schdoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=1
+AnnotateOrder=-1
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -207,7 +190,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=IHPKNURI
 
-[Document10]
+[Document9]
 DocumentPath=Driver.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -224,7 +207,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=SHZUWPJB
 
-[Document11]
+[Document10]
 DocumentPath=Pcb1.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -241,7 +224,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QUNKYDKN
 
-[Document12]
+[Document11]
 DocumentPath=Librairies\TEP_243-AltiumLIB-Conn-TP-MH.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -258,7 +241,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=GTBXXYJW
 
-[Document13]
+[Document12]
 DocumentPath=Librairies\243-436-MikoBus-DrvMot.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -275,7 +258,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document14]
+[Document13]
 DocumentPath=Librairies\243-436-MikoBus-DrvMot.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
